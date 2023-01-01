@@ -1,0 +1,9 @@
+<?php
+define('ROOTIMG',"http://localhost/Projet_TDW/public/assets/images/");
+define('ROOTCSS',"http://localhost/Projet_TDW/public/assets/css/");
+define('ROOTJS',"http://localhost/Projet_TDW/public/assets/js/");
+define('ROOT',"http://localhost/Projet_TDW/public/");
+define('USERNAME','root');
+define('PASSWORD','');
+define('DATABASENAME','tdw');
+define('HOSTNAME','localhost');
