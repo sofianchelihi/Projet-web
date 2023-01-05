@@ -16,43 +16,17 @@ class page_accueil extends Controlleurs{
         $view->afficher_menu();
         $this->affiche_categories();
         $view->afficher_footer();
-        $view->afficher_entete_bas();
+        $view->afficher_entete_bas("view.js");
     }
 
     public function affiche_categories(){
         $recette_model = new recette_model();
         $get_all_categories = $recette_model->getCategories();
         $info_categories=array();
-        $lien_categories=array();
         foreach($get_all_categories as $element){
             $info_categories[$element['nom_categorie']] = $recette_model->getRecette_par_caregorie($element['nom_categorie']);
-            $lien_categories[$element['nom_categorie']] = $element['lien_categorie'];
         }
         $view = new page_accueil_view();
-        $view->affiche_categories($info_categories,$lien_categories);
+        $view->affiche_categories($info_categories,false);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function getData($a=4,$b=4){
-    //     echo $a."  : ".$b;
-    // }
-
-    // public function testPost(){
-    //     if(isset($_POST['ss'])){
-    //         echo $_POST['ss'];
-    //     }
-    // }
 }
