@@ -39,6 +39,12 @@ function AddRecetteInfo($recettes,$notations,$saisons,$estimation_calories){
     return $recettes;
 }
 
+function get_nb_ingredient($recettes,$id_recette){
+    foreach($recettes as $recette){
+        if($recette["id_recette"]==$id_recette) return $recette["nb_ingr"];
+    }
+}
+
 
 
 

@@ -1,0 +1,166 @@
+body::-webkit-scrollbar{
+    width: 8px; 
+    height: 10px;
+    border-radius: 20px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.425); /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: orange; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid rgba(128, 128, 128, 0.425); /* creates padding around scroll thumb */
+}
+
+.divmenu{
+    width: 100%;
+    height: 120px;
+    display: block;
+}
+
+.contact{
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.868);
+    color: white;
+    margin: 0px;
+    align-items: center;
+}
+
+.contact div:nth-child(2){
+    display: flex;
+    padding-left: 60px;
+}
+
+.contact div:nth-child(2) a img{
+    width: 25px!important;
+    height: 25px!important;
+    margin-left: 30px;
+    background-color: inherit;
+}
+
+.contact div:nth-child(1){
+   display: flex;
+   padding-left: 250px;
+}
+
+.contact div:nth-child(1) a{
+   text-decoration: none;
+   color:rgb(145, 145, 145) ;
+   font-size: 17px;
+   font-weight: 500;
+   margin-left: 25px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.menu{
+    width: 100%!important;
+    margin: 0px!important;
+    height: 80px;
+    color: white;
+    background-color: black;
+    align-items: center;
+}
+
+.menu div:nth-child(1){
+    display: flex;
+    justify-content: center;
+}
+.menu div:nth-child(1) object{
+    width: 80px;
+    height: 90px;
+    object-fit: contain;
+    background-color: inherit;
+    color: white;
+}
+
+.menu div:nth-child(2) ul{
+    list-style: none;
+}
+
+.menu div:nth-child(2) ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.recette{
+   width: 80%;
+   margin-left: 10%;
+   margin-top: 25px;
+   margin-bottom: 30px;
+   height: auto;
+   min-height:480px;
+}
+
+.cart{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    border: rgb(203, 203, 203) solid 1px;
+}
+
+.cart img{
+    width: 100%;
+    height: 470px;
+    object-fit: fill;
+    border-radius:6px 6px 0px 0px;
+}
+
+.cardBody{
+    width: 100%;
+    height: auto;
+    min-width: 270px;
+}
+.cardBody h5{
+    width: 100%;
+    height: auto;
+    min-height: 55px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cardBody>p{
+    display: inline-block;
+    height: auto;
+    min-height: 130px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    font-size: 400;
+    font-size: 20px;
+}
+
+
+.info{
+    display: none;
+}
+
+.video{
+    display: inline-block!important;
+    height: 35px;
+    width: 15%;
+    background-color: #0d6efd;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 3px;
+    margin-left: 55%;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+
+
+

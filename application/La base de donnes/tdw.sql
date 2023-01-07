@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 29 déc. 2022 à 17:08
+-- Généré le : sam. 07 jan. 2023 à 15:42
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.0
 
@@ -54,19 +54,18 @@ INSERT INTO `admin` (`id_admin`, `nom_admin`, `prenom_admin`, `email_admin`, `ag
 
 CREATE TABLE `categorie` (
   `id_categorie` int(11) NOT NULL,
-  `nom_categorie` varchar(30) DEFAULT NULL,
-  `description_categorie` varchar(255) DEFAULT NULL
+  `nom_categorie` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`id_categorie`, `nom_categorie`, `description_categorie`) VALUES
-(1, ' plats', 'plats principale '),
-(2, 'entrées', 'entrées'),
-(3, 'desserts', 'desserts'),
-(4, 'boissons', 'boissons');
+INSERT INTO `categorie` (`id_categorie`, `nom_categorie`) VALUES
+(1, 'plats'),
+(2, 'entrees'),
+(3, 'desserts'),
+(4, 'boissons');
 
 -- --------------------------------------------------------
 
@@ -77,8 +76,19 @@ INSERT INTO `categorie` (`id_categorie`, `nom_categorie`, `description_categorie
 CREATE TABLE `element_diaporama` (
   `id_element` int(11) NOT NULL,
   `lien_image` varchar(255) DEFAULT NULL,
-  `lien_description` varchar(255) DEFAULT NULL
+  `lien_description` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `element_diaporama`
+--
+
+INSERT INTO `element_diaporama` (`id_element`, `lien_image`, `lien_description`) VALUES
+(1, 'http://localhost/Projet_TDW/public/assets/images/r11.webp', 'http://localhost/Projet_TDW/public/recette/affiche_page_recette&id_recette=11'),
+(2, 'http://localhost/Projet_TDW/public/assets/images/new4.webp', 'http://localhost/Projet_TDW/public/news/affiche_page_new&id_news=11'),
+(3, 'http://localhost/Projet_TDW/public/assets/images/new6.webp', 'http://localhost/Projet_TDW/public/news/affiche_page_new&id_news=4'),
+(4, 'http://localhost/Projet_TDW/public/assets/images/r1.webp', 'http://localhost/Projet_TDW/public/recette/affiche_page_recette&id_recette=1'),
+(5, 'http://localhost/Projet_TDW/public/assets/images/r11.webp', 'http://localhost/Projet_TDW/public/recette/affiche_page_recette&id_recette=11');
 
 -- --------------------------------------------------------
 
@@ -576,11 +586,11 @@ INSERT INTO `ingredient` (`id_ingr`, `nom_ingr`, `healthy`, `calories`) VALUES
 (5, 'curcuma', 1, 246),
 (6, 'paprika', 1, 48),
 (7, 'jus de citron', 0, 218),
-(8, 'Sel', 1, 67),
-(9, 'Persil haché', 1, 160),
+(8, 'sel', 1, 67),
+(9, 'persil haché', 1, 160),
 (10, 'œufs', 1, 227),
-(11, 'Chapelure', 1, 166),
-(12, 'Huile', 0, 133),
+(11, 'chapelure', 1, 166),
+(12, 'huile', 0, 133),
 (13, 'oignon haché', 0, 37),
 (14, 'Persil', 1, 238),
 (15, 'Champignons', 0, 62),
@@ -1041,11 +1051,31 @@ INSERT INTO `ingr_info_nutr` (`id_info`, `id_ingr`) VALUES
 
 CREATE TABLE `news` (
   `id_news` int(11) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `titre_news` varchar(255) NOT NULL,
+  `description` varchar(3000) DEFAULT NULL,
   `liens_image` varchar(120) DEFAULT NULL,
   `lien_video` varchar(120) DEFAULT NULL,
   `id_recette` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `news`
+--
+
+INSERT INTO `news` (`id_news`, `titre_news`, `description`, `liens_image`, `lien_video`, `id_recette`) VALUES
+(1, '', NULL, NULL, NULL, 3),
+(2, 'Importance of sesame seeds in winter and 4 easy recipes that you can try', 'Black or white, these tiny, flat, oval-shaped seeds of the Sesamum indicum plant are not only one of the oldest known oilseeds but the healthiest as well. Being a native of India, sesame has an age-old connection with the country. It was during the Harappan period that its cultivation started in India and the country is one of the largest producers now. India is the third largest producer of sesame seeds. The rich nutty flavour and delicate crunch of sesame seeds make it quintessential to the Indian kitchen. Here are some of the most delicious dishes prepared using these tiny seeds. Take a look. (Images courtesy: Canva)\nThese tiny seeds were known to be quite important earlier. You would be surprised to know that sesame seeds were worth their weight in gold during the Middle Ages. Loaded with vital vitamins and minerals, these seeds are a great addition to a balanced diet. They are quite versatile and can be used to prepare any dish. Some of the common health benefits of using sesame seeds are: manages diabetes, balances low blood pressure, improves your heart, makes bone stronger, cures sleep disorders, boosts the health of your respiratory system, lowers inflammation in the body, assists in depression, and stress. There is so much to get from these small seeds.\nEnriched with antioxidants and fibre, this chutney is the easiest way to include sesame seeds in your diet. Often made with peanuts or lentils like urad and chana dal, this is a creamy chutney and can be prepared with either black or white sesame seeds. Some people also add coconut while making this chutney. Due to the number of anti-inflammatory properties, thus chutney can also help in improving your bone health and normalizing your blood pressure. All you need to do is take 1 cup of any sesame seeds and roast them in a pan. Once done, let them cool down. Once cooled, add them to a mixer jar and grind them with 2 dry red chillies, 4-5 garlic cloves, salt to taste, 1/3 tsp asafoetida along with 1-2 tsp', 'http://localhost/Projet_TDW/public/assets/images/new3.webp', '#', NULL),
+(3, '', NULL, NULL, NULL, 32),
+(4, 'What is Pink Gin and why people are going crazy about it?\r\n', 'Among the several food & drink trends of 2022, what caught our eye was people’s love for ‘pink gin’. This drink is there on every other person’s social media feed. But, what many fail to understand is what exactly is this gin, and why it is called so. Originally, this gin was made by mixing Angostura bitters with Plymouth gin in the mid-18th century, which gave it a beautiful pink colour. Earlier, it was a cocktail which was a huge hit in the UK by the end of the 18th century. However, If we talk about the ‘Pink Gin’ of the 21st century, it would be the gin flavoured and infused with a variety of fruits, herbs and spices that impart pink colour such as strawberries, raspberries, rhubarb, rose petals, and even hibiscus. Read more to know about pink gin… (Images courtesy: iStock)\r\nThe pink gin bottle might look like it\'s going to taste bubblegum-sweet, but don’t let the colour fool you! Pink gin is known to be fresh, fragrant, fruity and elegant, and sometimes their taste is complex. You can have this variety of gin as it is or serve it with tonic to make a traditional G&T cocktail.\r\nPink gin is made just like any other normal gin, through a distillation process. The flavours and any added colourings are added during this process to infuse the gin. Common pink gin ingredients like red berries (like strawberries and redcurrants), rose petals and other spices are added to steep the spirit. Once the process is complete, the pink gin is ready to enjoy.', 'http://localhost/Projet_TDW/public/assets/images/new6.webp', '#', NULL),
+(5, '', NULL, NULL, NULL, 37),
+(6, '', NULL, NULL, NULL, 42),
+(8, '6 herbs that are a must in the winter season', 'Among all the seasons, we get to experience in the country, winter is the most amazing one when we sit under the sun and enjoy the warmth in the afternoons. During this season, most of the people love to indulge in spicy & fried food as our metabolism is increased and the food we consume is digested easily. However, what kills all the fun is the introduction of colds & coughs with fever and stomach ache. While others feel breathing issues due to the much chilly weather. However, nature has a cure for everything and can also help you become fit and fine with the consumption of simple herbs. India is a land of Ayurveda, where herbs & shrubs have been given utmost importance for their medicinal properties. Here are some of the common herbs that we must consume in this winter season. (Images courtesy: Canva)\nThis thyme has strong tonic and antiseptic properties, and due to these properties, lemon thyme is an exceptional herb that can be used to treat chest and throat infections, which are quite common in the winter season. To get some instant results from this herb, take a cup of hot water and add a sprig of lemon thyme to it. Cover the cup with a lid and let the herb infuse in it to release its essential oils. Strain and drink this lemon thyme water/tea 2-3 times a day depending on the infection. If you want, you can also add a bit of honey to it.Also known as pot marigold, this plant is known for its powerful flowers which are known to have antiviral properties, which help in clearing infections, and detoxing and balancing the digestive system, liver and gall bladder. All you need to do is infuse 2 teaspoons of calendula petals in 750ml of just-boiled water for 10 minutes. Strain and drink up to five cups a day.', 'http://localhost/Projet_TDW/public/assets/images/new1.webp', '#', NULL),
+(9, 'You are not a tea lover, if you haven\'t tried making these 5 types of viral tea', 'You can’t be a tea lover if you haven’t immersed your heart and soul into that warm cup of freshly brewed tea and laughed off your worries over that hot cuppa. The love of tea is subjective so much so that even the slight addition of ingredients can seem like blasphemy. Of late, the internet has exposed us to a bevy of tea fusions and varieties that are good as well as gross. Let’s take a look at some of the most viral tea varieties that changed our minds, before changing our palate and love for tea.\r\nDum Chai is a classic Hyderabadi milk tea, which recently took the internet by storm with its aromatic flavour and rich texture. Made by pouring lukewarm water in a glass and covering it with a muslin cloth, sugar, ginger, tea leaves, cinnamon pieces, clove and star anise are kept over the cloth and slightly dunked in the glass of water. Then this glass is safely placed in a pressure cooker and cooked for 1 whistle to give a smokey effect. Then the muslin cloth is squeezed and the concoction is mixed with hot milk, stirred and enjoyed as Dum Tea.\r\nThe mere thought of sipping on the Roohafza chai will take your rooh(soul) out for a stroll, yes it is no less than a blasphemy for tea lovers. This Delhi tea maker makes pink tea wherein he pours Roohafza to regular chai to give it a rosy and sweet taste. This Delhi based tea stall left netizens with a bad taste and totally destroyed their love for the classic Pink Chai also known as Noon Chai.', 'http://localhost/Projet_TDW/public/assets/images/new2.webp', '#', NULL),
+(11, '7 healthy alternatives to refined flour', 'From bhaturas to cakes, we use humble refined flour, aka maida or all-purpose flour, in every way possible to bake or cook delicious recipes. But the reality is that it is unhealthy in general! Hence, we all need easy and readily available alternatives that can give similar results but have higher nutritional values. Well, your search ends here, as we have listed 7 healthy alternatives to refined flour that can be used at home. (Image: istock)\r\nIt is milled from spelt berries, which are an ancient variety of wheat and are rich in fiber. As per experts, it is milder and lighter than other whole wheat flours, which makes it popular in whole grain baking.(Image: istock)\r\nIt is made from rye berries, which have a similar appearance to wheat berries and are a rich source of fiber, as well as minerals like manganese, copper, and phosphorus. According to research, rye is high in phytonutrients1, which help fight disease and protect the body from the stress of aging.(Image: istock)', 'http://localhost/Projet_TDW/public/assets/images/new4.webp', '#', NULL),
+(12, 'Simple kitchen spices that can change your luck in the New Year', 'Since ages, we have been using spices to accentuate the taste of our meals, but what if we tell you that these little kitchen spices can twist your fate and bring good luck! This may sound unbelievable, but it is true that using spices in the right way can bring good luck, so welcome the New Year with these spices and have a successful, healthy and prosperous year ahead. Here are some common spices you can include in day-to-day life to bring good luck and fulfill wishes.\r\nAs per Hindu beliefs clove is considered pious and so it is used in several Hindu rituals and religious practices. It is believed that this spice can ward off the ill-effects of evil eye and boost a positive aura. Spiritual experts believe that keeping a few pods of cloves in your wallet or keeping them in the puja thali and offering to Goddess Durga can bring good luck. Also, if you are stepping out for an important deal, chew a clove or keep it in your bag to attract positive results.\r\nAccording to Hindu beliefs, Turmeric has the power to cleanse the aura and remove blockages, negativity and bring good luck. This is because Haldi is believed to be associated with the Jupiter planet, which is ruled by Lord Vishnu and Goddess Laxmi. Thus, it is believed that this spice has the power to remove evil eye. Apart from that, including haldi in day to day food or in bathing water or applying tika before leaving for important work can bring good luck.\r\nLooking for a job change? Then try this-keep a few cardamom pods under the pillow at night and give it to an outsider in the morning. Spiritual experts believe that doing this can bring good luck in career.This kitchen spice is often used in tea, deserts and curries, but do you know just by chewing this simple spice you can improve your life condition and attract positivity, money and peace in life.', 'http://localhost/Projet_TDW/public/assets/images/new5.webp', '#', NULL),
+(14, '', NULL, NULL, NULL, 24),
+(16, '', NULL, NULL, NULL, 11),
+(17, '', NULL, NULL, NULL, 47);
 
 -- --------------------------------------------------------
 
@@ -1060,6 +1090,162 @@ CREATE TABLE `noter` (
   `note` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `noter`
+--
+
+INSERT INTO `noter` (`id_recette`, `id_user`, `date`, `note`) VALUES
+(1, 1, '2023-01-03', 3),
+(1, 2, '2023-01-03', 2),
+(1, 3, '2023-01-03', 3),
+(2, 1, '2023-01-03', 7),
+(2, 2, '2023-01-03', 7),
+(2, 3, '2023-01-03', 9),
+(3, 1, '2023-01-03', 2),
+(3, 2, '2023-01-03', 9),
+(3, 3, '2023-01-03', 9),
+(4, 1, '2023-01-03', 9),
+(4, 2, '2023-01-03', 0),
+(4, 3, '2023-01-03', 4),
+(5, 1, '2023-01-03', 10),
+(5, 2, '2023-01-03', 4),
+(5, 3, '2023-01-03', 2),
+(6, 1, '2023-01-03', 6),
+(6, 2, '2023-01-03', 3),
+(6, 3, '2023-01-03', 8),
+(7, 1, '2023-01-03', 2),
+(7, 2, '2023-01-03', 4),
+(7, 3, '2023-01-03', 2),
+(8, 1, '2023-01-03', 10),
+(8, 2, '2023-01-03', 4),
+(8, 3, '2023-01-03', 10),
+(9, 1, '2023-01-03', 5),
+(9, 2, '2023-01-03', 2),
+(9, 3, '2023-01-03', 6),
+(10, 1, '2023-01-03', 8),
+(10, 2, '2023-01-03', 7),
+(10, 3, '2023-01-03', 9),
+(11, 1, '2023-01-03', 9),
+(11, 2, '2023-01-03', 3),
+(11, 3, '2023-01-03', 3),
+(12, 1, '2023-01-03', 0),
+(12, 2, '2023-01-03', 2),
+(12, 3, '2023-01-03', 1),
+(13, 1, '2023-01-03', 6),
+(13, 2, '2023-01-03', 4),
+(13, 3, '2023-01-03', 10),
+(14, 1, '2023-01-03', 1),
+(14, 2, '2023-01-03', 3),
+(14, 3, '2023-01-03', 5),
+(15, 1, '2023-01-03', 9),
+(15, 2, '2023-01-03', 0),
+(15, 3, '2023-01-03', 7),
+(16, 1, '2023-01-03', 4),
+(16, 2, '2023-01-03', 6),
+(16, 3, '2023-01-03', 0),
+(17, 1, '2023-01-03', 6),
+(17, 2, '2023-01-03', 8),
+(17, 3, '2023-01-03', 2),
+(18, 1, '2023-01-03', 3),
+(18, 2, '2023-01-03', 10),
+(18, 3, '2023-01-03', 10),
+(19, 1, '2023-01-03', 0),
+(19, 2, '2023-01-03', 6),
+(19, 3, '2023-01-03', 1),
+(20, 1, '2023-01-03', 4),
+(20, 2, '2023-01-03', 2),
+(20, 3, '2023-01-03', 10),
+(21, 1, '2023-01-03', 1),
+(21, 2, '2023-01-03', 0),
+(21, 3, '2023-01-03', 1),
+(22, 1, '2023-01-03', 0),
+(22, 2, '2023-01-03', 7),
+(22, 3, '2023-01-03', 1),
+(23, 1, '2023-01-03', 2),
+(23, 2, '2023-01-03', 4),
+(23, 3, '2023-01-03', 9),
+(24, 1, '2023-01-03', 3),
+(24, 2, '2023-01-03', 2),
+(24, 3, '2023-01-03', 10),
+(25, 1, '2023-01-03', 7),
+(25, 2, '2023-01-03', 4),
+(25, 3, '2023-01-03', 10),
+(26, 1, '2023-01-03', 7),
+(26, 2, '2023-01-03', 2),
+(26, 3, '2023-01-03', 5),
+(27, 1, '2023-01-03', 1),
+(27, 2, '2023-01-03', 1),
+(27, 3, '2023-01-03', 6),
+(28, 1, '2023-01-03', 5),
+(28, 2, '2023-01-03', 7),
+(28, 3, '2023-01-03', 2),
+(29, 1, '2023-01-03', 10),
+(29, 2, '2023-01-03', 2),
+(29, 3, '2023-01-03', 1),
+(30, 1, '2023-01-03', 0),
+(30, 2, '2023-01-03', 8),
+(30, 3, '2023-01-03', 7),
+(31, 1, '2023-01-03', 9),
+(31, 2, '2023-01-03', 5),
+(31, 3, '2023-01-03', 2),
+(32, 1, '2023-01-03', 6),
+(32, 2, '2023-01-03', 2),
+(32, 3, '2023-01-03', 0),
+(33, 1, '2023-01-03', 1),
+(33, 2, '2023-01-03', 7),
+(33, 3, '2023-01-03', 10),
+(34, 1, '2023-01-03', 2),
+(34, 2, '2023-01-03', 5),
+(34, 3, '2023-01-03', 2),
+(35, 1, '2023-01-03', 0),
+(35, 2, '2023-01-03', 5),
+(35, 3, '2023-01-03', 8),
+(36, 1, '2023-01-03', 4),
+(36, 2, '2023-01-03', 8),
+(36, 3, '2023-01-03', 2),
+(37, 1, '2023-01-03', 0),
+(37, 2, '2023-01-03', 8),
+(37, 3, '2023-01-03', 4),
+(38, 1, '2023-01-03', 7),
+(38, 2, '2023-01-03', 4),
+(38, 3, '2023-01-03', 4),
+(39, 1, '2023-01-03', 6),
+(39, 2, '2023-01-03', 4),
+(39, 3, '2023-01-03', 2),
+(40, 1, '2023-01-03', 10),
+(40, 2, '2023-01-03', 10),
+(40, 3, '2023-01-03', 3),
+(41, 1, '2023-01-03', 0),
+(41, 2, '2023-01-03', 3),
+(41, 3, '2023-01-03', 10),
+(42, 1, '2023-01-03', 1),
+(42, 2, '2023-01-03', 4),
+(42, 3, '2023-01-03', 6),
+(43, 1, '2023-01-03', 3),
+(43, 2, '2023-01-03', 7),
+(43, 3, '2023-01-03', 7),
+(44, 1, '2023-01-03', 9),
+(44, 2, '2023-01-03', 8),
+(44, 3, '2023-01-03', 9),
+(45, 1, '2023-01-03', 0),
+(45, 2, '2023-01-03', 1),
+(45, 3, '2023-01-03', 9),
+(46, 1, '2023-01-03', 8),
+(46, 2, '2023-01-03', 1),
+(46, 3, '2023-01-03', 9),
+(47, 1, '2023-01-03', 3),
+(47, 2, '2023-01-03', 6),
+(47, 3, '2023-01-03', 6),
+(48, 1, '2023-01-03', 10),
+(48, 2, '2023-01-03', 7),
+(48, 3, '2023-01-03', 3),
+(49, 1, '2023-01-03', 8),
+(49, 2, '2023-01-03', 5),
+(49, 3, '2023-01-03', 10),
+(50, 1, '2023-01-03', 8),
+(50, 2, '2023-01-03', 2),
+(50, 3, '2023-01-03', 7);
+
 -- --------------------------------------------------------
 
 --
@@ -1068,8 +1254,16 @@ CREATE TABLE `noter` (
 
 CREATE TABLE `parametre_site` (
   `id_parametre` varchar(30) NOT NULL,
-  `valeur` varchar(20) DEFAULT NULL
+  `valeur` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `parametre_site`
+--
+
+INSERT INTO `parametre_site` (`id_parametre`, `valeur`) VALUES
+('nb_calories_healthy', 150),
+('pourcentage_ingredient', 0.7);
 
 -- --------------------------------------------------------
 
@@ -1093,10 +1287,10 @@ CREATE TABLE `recette` (
   `titre_recette` varchar(120) DEFAULT NULL,
   `lien_image` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `diff_recette` int(11) NOT NULL,
   `temp_prepa` int(11) DEFAULT NULL,
   `temp_repo` int(11) DEFAULT NULL,
   `temp_cuis` int(11) DEFAULT NULL,
-  `new` tinyint(1) DEFAULT NULL,
   `lien_video` varchar(255) DEFAULT NULL,
   `valide` tinyint(1) DEFAULT NULL,
   `categorie` int(11) NOT NULL
@@ -1106,57 +1300,57 @@ CREATE TABLE `recette` (
 -- Déchargement des données de la table `recette`
 --
 
-INSERT INTO `recette` (`id_recette`, `titre_recette`, `lien_image`, `description`, `temp_prepa`, `temp_repo`, `temp_cuis`, `new`, `lien_video`, `valide`, `categorie`) VALUES
-(1, 'Nuggets de poulet', 'http://localhost/Projet_TDW/public/assets/images/r1', 'Nuggets de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 15, 3, 8, 0, ' ', 1, 1),
-(2, 'Croquettes de riz en sauce blanche', 'http://localhost/Projet_TDW/public/assets/images/r2', 'Croquettes de riz en sauce blanche est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 10, 35, 0, ' ', 1, 1),
-(3, 'Riz basmati aux aubergines', 'http://localhost/Projet_TDW/public/assets/images/r3', 'Riz basmati aux aubergines est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 35, 5, 45, 0, ' ', 1, 1),
-(4, 'Riz pilaf aux légumes', 'http://localhost/Projet_TDW/public/assets/images/r4', 'Riz pilaf aux légumes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 10, 3, 15, 0, ' ', 1, 1),
-(5, 'Croquettes de riz et poulet en sauce rouge', 'http://localhost/Projet_TDW/public/assets/images/r5', 'Croquettes de riz et poulet en sauce rouge est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 8, 40, 0, ' ', 1, 1),
-(6, 'Sardines à la chermoula au four', 'http://localhost/Projet_TDW/public/assets/images/r6', 'Sardines à la chermoula au four est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 15, 10, 45, 0, ' ', 1, 1),
-(7, 'Curry de poulet', 'http://localhost/Projet_TDW/public/assets/images/r7', 'Curry de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 15, 9, 25, 0, ' ', 1, 1),
-(8, 'Riz pilaf à ma façon', 'http://localhost/Projet_TDW/public/assets/images/r8', 'Riz pilaf à ma façon est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 10, 5, 20, 0, ' ', 1, 1),
-(9, 'Tajine de boulettes de riz', 'http://localhost/Projet_TDW/public/assets/images/r9', 'Tajine de boulettes de riz est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 20, 5, 30, 0, ' ', 1, 1),
-(10, 'Poulet rôti à ma façon', 'http://localhost/Projet_TDW/public/assets/images/r10', 'Poulet rôti à ma façon est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 15, 2, 40, 0, ' ', 1, 1),
-(11, 'Poulet aux champignons et échalotes', 'http://localhost/Projet_TDW/public/assets/images/r11', 'Poulet aux champignons et échalotes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 0, 25, 0, ' ', 1, 1),
-(12, 'Lasagnes à la bolognaise', 'http://localhost/Projet_TDW/public/assets/images/r12', 'Lasagnes à la bolognaise est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 8, 60, 0, ' ', 1, 1),
-(13, 'Trida en gratin', 'http://localhost/Projet_TDW/public/assets/images/r13', 'Trida en gratin est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 9, 30, 0, ' ', 1, 1),
-(14, 'Gratin de pâtes', 'http://localhost/Projet_TDW/public/assets/images/r14', 'Gratin de pâtes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 20, 1, 25, 0, ' ', 1, 1),
-(15, 'Pâtes torsades à la sauce soja', 'http://localhost/Projet_TDW/public/assets/images/r15', 'Pâtes torsades à la sauce soja est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 15, 5, 25, 0, ' ', 1, 1),
-(16, 'Tlitli sauce rouge', 'http://localhost/Projet_TDW/public/assets/images/r16', 'Tlitli sauce rouge est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 40, 6, 60, 0, ' ', 1, 1),
-(17, 'Pâtes torsades aux abats de poulet', 'http://localhost/Projet_TDW/public/assets/images/r17', 'Pâtes torsades aux abats de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 20, 3, 15, 0, ' ', 1, 1),
-(18, 'Pâtes à la sauce soja', 'http://localhost/Projet_TDW/public/assets/images/r18', 'Pâtes à la sauce soja est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 10, 4, 15, 0, ' ', 1, 1),
-(19, 'Pâtes aux légumes à l’algérienne', 'http://localhost/Projet_TDW/public/assets/images/r19', 'Pâtes aux légumes à l’algérienne est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 20, 4, 35, 0, ' ', 1, 1),
-(20, 'Gratin de pâtes et légumes  ', 'http://localhost/Projet_TDW/public/assets/images/r20', 'Gratin de pâtes et légumes   est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 30, 1, 40, 0, ' ', 1, 1),
-(21, 'Feuilletés apéritifs', 'http://localhost/Projet_TDW/public/assets/images/r21', 'Feuilletés apéritifs est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 20, 2, 20, 0, ' ', 1, 2),
-(22, 'Mini-quiches poulet-courgette', 'http://localhost/Projet_TDW/public/assets/images/r22', 'Mini-quiches poulet-courgette est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 15, 10, 25, 0, ' ', 1, 2),
-(23, 'Matlou3 en 10 min', 'http://localhost/Projet_TDW/public/assets/images/r23', 'Matlou3 en 10 min est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 10, 9, 30, 0, ' ', 1, 2),
-(24, 'Boureks au four', 'http://localhost/Projet_TDW/public/assets/images/r24', 'Boureks au four est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 15, 4, 20, 0, ' ', 1, 2),
-(25, 'Oeufs cocotte à la viande hachée', 'http://localhost/Projet_TDW/public/assets/images/r25', 'Oeufs cocotte à la viande hachée est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 15, 10, 15, 0, ' ', 1, 2),
-(26, 'Pastilla à la viande hachée', 'http://localhost/Projet_TDW/public/assets/images/r26', 'Pastilla à la viande hachée est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 15, 10, 15, 0, ' ', 1, 2),
-(27, 'Oeufs mimosa au thon', 'http://localhost/Projet_TDW/public/assets/images/r27', 'Oeufs mimosa au thon est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 10, 6, 30, 0, ' ', 1, 2),
-(28, 'Matlou3 semoule-farine complète', 'http://localhost/Projet_TDW/public/assets/images/r28', 'Matlou3 semoule-farine complète est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 10, 5, 25, 0, ' ', 1, 2),
-(29, 'Zrodia mchermla', 'http://localhost/Projet_TDW/public/assets/images/r29', 'Zrodia mchermla est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 15, 10, 25, 0, ' ', 1, 2),
-(30, 'Brioches roulées', 'http://localhost/Projet_TDW/public/assets/images/r30', 'Brioches roulées est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 20, 5, 25, 0, ' ', 1, 2),
-(31, 'Jus orange-citron', 'http://localhost/Projet_TDW/public/assets/images/r31', 'Jus orange-citron est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 10, 10, 15, 0, ' ', 1, 4),
-(32, 'Concentré d’oranges', 'http://localhost/Projet_TDW/public/assets/images/r32', 'Concentré d’oranges est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 15, 4, 480, 0, ' ', 1, 4),
-(33, 'Jus d’orange', 'http://localhost/Projet_TDW/public/assets/images/r33', 'Jus d’orange est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 10, 8, 4, 0, ' ', 1, 4),
-(34, 'Jus maison 3 en 1 (Oranges, Fraises et Bananes)', 'http://localhost/Projet_TDW/public/assets/images/r34', 'Jus maison 3 en 1 (Oranges, Fraises et Bananes) est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 10, 10, 45, 0, ' ', 1, 4),
-(35, 'Jus de pommes, oranges et carottes', 'http://localhost/Projet_TDW/public/assets/images/r35', 'Jus de pommes, oranges et carottes est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 15, 9, 35, 0, ' ', 1, 4),
-(36, 'Jus maison (oranges et carottes)', 'http://localhost/Projet_TDW/public/assets/images/r36', 'Jus maison (oranges et carottes) est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 20, 8, 30, 0, ' ', 1, 4),
-(37, 'Jus de nectarines maison', 'http://localhost/Projet_TDW/public/assets/images/r37', 'Jus de nectarines maison est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 5, 5, 5, 0, ' ', 1, 4),
-(38, 'Charbat', 'http://localhost/Projet_TDW/public/assets/images/r38', 'Charbat est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 10, 1, 12, 0, ' ', 1, 4),
-(39, 'Jus magique', 'http://localhost/Projet_TDW/public/assets/images/r39', 'Jus magique est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 20, 3, 14, 0, ' ', 1, 4),
-(40, 'Jus de fraises', 'http://localhost/Projet_TDW/public/assets/images/r40', 'Jus de fraises est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 5, 10, 25, 0, ' ', 1, 4),
-(41, 'Gâteau el mabroucha ( Gâteau à la confiture)', 'http://localhost/Projet_TDW/public/assets/images/r41', 'Gâteau el mabroucha ( Gâteau à la confiture) est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 16, 2, 40, 0, ' ', 1, 3),
-(42, 'Mousse à l’orange', 'http://localhost/Projet_TDW/public/assets/images/r42', 'Mousse à l’orange est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 15, 3, 12, 0, ' ', 1, 3),
-(43, 'Brioches roulées', 'http://localhost/Projet_TDW/public/assets/images/r43', 'Brioches roulées est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 11, 1, 25, 0, ' ', 1, 3),
-(44, 'Gâteau au citron', 'http://localhost/Projet_TDW/public/assets/images/r44', 'Gâteau au citron est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 10, 7, 15, 0, ' ', 1, 3),
-(45, 'Mini-cakes à la crème', 'http://localhost/Projet_TDW/public/assets/images/r45', 'Mini-cakes à la crème est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 13, 1, 20, 0, ' ', 1, 3),
-(46, 'Tartelettes aux figues fraîches', 'http://localhost/Projet_TDW/public/assets/images/r46', 'Tartelettes aux figues fraîches est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 20, 2, 45, 0, ' ', 1, 3),
-(47, 'Cupcakes au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r47', 'Cupcakes au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 15, 2, 20, 0, ' ', 1, 3),
-(48, 'Pain fourré au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r48', 'Pain fourré au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 30, 6, 40, 0, ' ', 1, 3),
-(49, 'Entremet glacé au caramel', 'http://localhost/Projet_TDW/public/assets/images/r49', 'Entremet glacé au caramel est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 15, 8, 30, 0, ' ', 1, 3),
-(50, 'Verrines au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r50', 'Verrines au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 15, 7, 18, 0, ' ', 1, 3);
+INSERT INTO `recette` (`id_recette`, `titre_recette`, `lien_image`, `description`, `diff_recette`, `temp_prepa`, `temp_repo`, `temp_cuis`, `lien_video`, `valide`, `categorie`) VALUES
+(1, 'Nuggets de poulet', 'http://localhost/Projet_TDW/public/assets/images/r1.webp', 'Nuggets de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 5, 15, 3, 8, '#', 1, 1),
+(2, 'Croquettes de riz en sauce blanche', 'http://localhost/Projet_TDW/public/assets/images/r2.webp', 'Croquettes de riz en sauce blanche est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 7, 30, 10, 35, '#', 1, 1),
+(3, 'Riz basmati aux aubergines', 'http://localhost/Projet_TDW/public/assets/images/r3.webp', 'Riz basmati aux aubergines est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 2, 35, 5, 45, '#', 1, 1),
+(4, 'Riz pilaf aux légumes', 'http://localhost/Projet_TDW/public/assets/images/r4.webp', 'Riz pilaf aux légumes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 10, 10, 3, 15, '#', 1, 1),
+(5, 'Croquettes de riz et poulet en sauce rouge', 'http://localhost/Projet_TDW/public/assets/images/r5.webp', 'Croquettes de riz et poulet en sauce rouge est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 1, 30, 8, 40, '#', 1, 1),
+(6, 'Sardines à la chermoula au four', 'http://localhost/Projet_TDW/public/assets/images/r6.webp', 'Sardines à la chermoula au four est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 1, 15, 10, 45, '#', 1, 1),
+(7, 'Curry de poulet', 'http://localhost/Projet_TDW/public/assets/images/r7.webp', 'Curry de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 4, 15, 9, 25, '#', 1, 1),
+(8, 'Riz pilaf à ma façon', 'http://localhost/Projet_TDW/public/assets/images/r8.webp', 'Riz pilaf à ma façon est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 5, 10, 5, 20, '#', 1, 1),
+(9, 'Tajine de boulettes de riz', 'http://localhost/Projet_TDW/public/assets/images/r9.webp', 'Tajine de boulettes de riz est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 9, 20, 5, 30, '#', 1, 1),
+(10, 'Poulet rôti à ma façon', 'http://localhost/Projet_TDW/public/assets/images/r10.webp', 'Poulet rôti à ma façon est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 3, 15, 2, 40, '#', 1, 1),
+(11, 'Poulet aux champignons et échalotes', 'http://localhost/Projet_TDW/public/assets/images/r11.webp', 'Poulet aux champignons et échalotes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 5, 30, 0, 25, '#', 1, 1),
+(12, 'Lasagnes à la bolognaise', 'http://localhost/Projet_TDW/public/assets/images/r12.webp', 'Lasagnes à la bolognaise est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 1, 30, 8, 60, '#', 1, 1),
+(13, 'Trida en gratin', 'http://localhost/Projet_TDW/public/assets/images/r13.webp', 'Trida en gratin est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 1, 30, 9, 30, '#', 1, 1),
+(14, 'Gratin de pâtes', 'http://localhost/Projet_TDW/public/assets/images/r14.webp', 'Gratin de pâtes est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 2, 20, 1, 25, '#', 1, 1),
+(15, 'Pâtes torsades à la sauce soja', 'http://localhost/Projet_TDW/public/assets/images/r15.webp', 'Pâtes torsades à la sauce soja est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 7, 15, 5, 25, '#', 1, 1),
+(16, 'Tlitli sauce rouge', 'http://localhost/Projet_TDW/public/assets/images/r16.webp', 'Tlitli sauce rouge est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 2, 40, 6, 60, '#', 1, 1),
+(17, 'Pâtes torsades aux abats de poulet', 'http://localhost/Projet_TDW/public/assets/images/r17.webp', 'Pâtes torsades aux abats de poulet est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 3, 20, 3, 15, '#', 1, 1),
+(18, 'Pâtes à la sauce soja', 'http://localhost/Projet_TDW/public/assets/images/r18.webp', 'Pâtes à la sauce soja est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 3, 10, 4, 15, '#', 1, 1),
+(19, 'Pâtes aux légumes à l’algérienne', 'http://localhost/Projet_TDW/public/assets/images/r19.webp', 'Pâtes aux légumes à l’algérienne est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 6, 20, 4, 35, '#', 1, 1),
+(20, 'Gratin de pâtes et légumes  ', 'http://localhost/Projet_TDW/public/assets/images/r20.webp', 'Gratin de pâtes et légumes   est un plat algerien connu facile a preparer qui contient des ingredient disponible,ce plat peut etre servi en plusieur fetes', 10, 30, 1, 40, '#', 1, 1),
+(21, 'Feuilletés apéritifs', 'http://localhost/Projet_TDW/public/assets/images/r21.webp', 'Feuilletés apéritifs est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 1, 20, 2, 20, '#', 1, 2),
+(22, 'Mini-quiches poulet-courgette', 'http://localhost/Projet_TDW/public/assets/images/r22.webp', 'Mini-quiches poulet-courgette est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 8, 15, 10, 25, '#', 1, 2),
+(23, 'Matlou3 en 10 min', 'http://localhost/Projet_TDW/public/assets/images/r23.webp', 'Matlou3 en 10 min est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 3, 10, 9, 30, '#', 1, 2),
+(24, 'Boureks au four', 'http://localhost/Projet_TDW/public/assets/images/r24.webp', 'Boureks au four est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 3, 15, 4, 20, '#', 1, 2),
+(25, 'Oeufs cocotte à la viande hachée', 'http://localhost/Projet_TDW/public/assets/images/r25.webp', 'Oeufs cocotte à la viande hachée est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 3, 15, 10, 15, '#', 1, 2),
+(26, 'Pastilla à la viande hachée', 'http://localhost/Projet_TDW/public/assets/images/r26.webp', 'Pastilla à la viande hachée est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 3, 15, 10, 15, '#', 1, 2),
+(27, 'Oeufs mimosa au thon', 'http://localhost/Projet_TDW/public/assets/images/r27.webp', 'Oeufs mimosa au thon est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 6, 10, 6, 30, '#', 1, 2),
+(28, 'Matlou3 semoule-farine complète', 'http://localhost/Projet_TDW/public/assets/images/r28.webp', 'Matlou3 semoule-farine complète est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 6, 10, 5, 25, '#', 1, 2),
+(29, 'Zrodia mchermla', 'http://localhost/Projet_TDW/public/assets/images/r29.webp', 'Zrodia mchermla est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 10, 15, 10, 25, '#', 1, 2),
+(30, 'Brioches roulées', 'http://localhost/Projet_TDW/public/assets/images/r30.webp', 'Brioches roulées est un entree algerien connu facile a preparer qui contient des ingredient disponible,ce entre peut etre servi avant les differents plats', 7, 20, 5, 25, '#', 1, 2),
+(31, 'Jus orange-citron', 'http://localhost/Projet_TDW/public/assets/images/r31.webp', 'Jus orange-citron est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 8, 10, 10, 15, '#', 1, 4),
+(32, 'Concentré d’oranges', 'http://localhost/Projet_TDW/public/assets/images/r32.webp', 'Concentré d’oranges est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 3, 15, 4, 480, '#', 1, 4),
+(33, 'Jus d’orange', 'http://localhost/Projet_TDW/public/assets/images/r33.webp', 'Jus d’orange est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 7, 10, 8, 4, '#', 1, 4),
+(34, 'Jus maison 3 en 1 (Oranges, Fraises et Bananes)', 'http://localhost/Projet_TDW/public/assets/images/r34.webp', 'Jus maison 3 en 1 (Oranges, Fraises et Bananes) est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 10, 10, 10, 45, '#', 1, 4),
+(35, 'Jus de pommes, oranges et carottes', 'http://localhost/Projet_TDW/public/assets/images/r35.webp', 'Jus de pommes, oranges et carottes est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 4, 15, 9, 35, '#', 1, 4),
+(36, 'Jus maison (oranges et carottes)', 'http://localhost/Projet_TDW/public/assets/images/r36.webp', 'Jus maison (oranges et carottes) est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 2, 20, 8, 30, '#', 1, 4),
+(37, 'Jus de nectarines maison', 'http://localhost/Projet_TDW/public/assets/images/r37.webp', 'Jus de nectarines maison est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 7, 5, 5, 5, '#', 1, 4),
+(38, 'Charbat', 'http://localhost/Projet_TDW/public/assets/images/r38.webp', 'Charbat est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 8, 10, 1, 12, '#', 1, 4),
+(39, 'Jus magique', 'http://localhost/Projet_TDW/public/assets/images/r39.webp', 'Jus magique est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 2, 20, 3, 14, '#', 1, 4),
+(40, 'Jus de fraises', 'http://localhost/Projet_TDW/public/assets/images/r40.webp', 'Jus de fraises est un boisson facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes', 1, 5, 10, 25, '#', 1, 4),
+(41, 'Gâteau el mabroucha ( Gâteau à la confiture)', 'http://localhost/Projet_TDW/public/assets/images/r41.webp', 'Gâteau el mabroucha ( Gâteau à la confiture) est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 6, 16, 2, 40, '#', 1, 3),
+(42, 'Mousse à l’orange', 'http://localhost/Projet_TDW/public/assets/images/r42.webp', 'Mousse à l’orange est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 1, 15, 3, 12, '#', 1, 3),
+(43, 'Brioches roulées', 'http://localhost/Projet_TDW/public/assets/images/r43.webp', 'Brioches roulées est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 5, 11, 1, 25, '#', 1, 3),
+(44, 'Gâteau au citron', 'http://localhost/Projet_TDW/public/assets/images/r44.webp', 'Gâteau au citron est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 7, 10, 7, 15, '#', 1, 3),
+(45, 'Mini-cakes à la crème', 'http://localhost/Projet_TDW/public/assets/images/r45.webp', 'Mini-cakes à la crème est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 3, 13, 1, 20, '#', 1, 3),
+(46, 'Tartelettes aux figues fraîches', 'http://localhost/Projet_TDW/public/assets/images/r46.webp', 'Tartelettes aux figues fraîches est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 8, 20, 2, 45, '#', 1, 3),
+(47, 'Cupcakes au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r47.webp', 'Cupcakes au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 9, 15, 2, 20, '#', 1, 3),
+(48, 'Pain fourré au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r48.webp', 'Pain fourré au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 4, 30, 6, 40, '#', 1, 3),
+(49, 'Entremet glacé au caramel', 'http://localhost/Projet_TDW/public/assets/images/r49.webp', 'Entremet glacé au caramel est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 3, 15, 8, 30, '#', 1, 3),
+(50, 'Verrines au chocolat', 'http://localhost/Projet_TDW/public/assets/images/r50.webp', 'Verrines au chocolat est un desser facile a preparer qui contient des ingredient disponible,qui peut etre servi en plusieur fetes apres les repas', 5, 15, 7, 18, '#', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -1788,6 +1982,15 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_user`, `nom_user`, `prenom_user`, `email_user`, `age_user`, `date_de_naissance`, `sexe`, `password`, `valide`, `token`) VALUES
+(1, 'sofian', 'chelihi', 'js_chelihi@esi.dz', 21, '2001-11-05', 'm', '123', 1, ' '),
+(2, 'djamel', 'chaalal', 'chaalal@esi.dz', 36, '1987-08-23', 'm', '123', 1, ' '),
+(3, 'chelihi', 'rayan', 'rayan@esi.dz', 21, '2001-11-05', 'm', '123', 1, ' ');
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -1936,7 +2139,7 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `element_diaporama`
 --
 ALTER TABLE `element_diaporama`
-  MODIFY `id_element` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_element` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `fetes`
@@ -1960,7 +2163,7 @@ ALTER TABLE `ingredient`
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `recette`
@@ -1978,7 +2181,7 @@ ALTER TABLE `saison`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées

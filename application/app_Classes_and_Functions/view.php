@@ -57,13 +57,13 @@ class view{
                 <div class="col-8">
                     <ul class="row"> 
                         <li class="col text-center">
-                            <a href="#">Page d’accueil</a>
+                            <a href="http://localhost/Projet_TDW/public/">Page d’accueil</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">News</a>
+                            <a href="http://localhost/Projet_TDW/public/news/afficher_news">News</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Idées recette</a>
+                            <a href="http://localhost/Projet_TDW/public/idee_recette/afficher_form_page">Idées recette</a>
                         </li>
                         <li class="col text-center">
                             <a href="#">Healthy</a>
@@ -93,9 +93,18 @@ class view{
             <div class="cardBody">
                 <h5  ><?php echo $info_recette['titre_recette']  ?></h5>
                 <p><?php echo afficher_description($info_recette['description'],$total_info,100)   ?></p>
-                <?php if(!$total_info): ?>
-                <a href="<?php echo LIEN_RECETTES.$info_recette['id_recette'] ?>" class="voirPlus">Voir plus</a>
-                <?php  endif;?>
+                <?php 
+                if(!$total_info){ 
+                    if($info_recette['id_recette']!=null){ 
+                        ?>
+                        <a href="<?php echo LIEN_RECETTES.$info_recette['id_recette'] ?>" class="voirPlus">Voir plus</a>
+                        <?php 
+                    }else{
+                        ?>
+                        <a href="<?php echo LIEN_NEWS.$info_recette['id_news'] ?>" class="voirPlus">Voir plus</a>
+                        <?php
+                    }
+                }?>
                 <div class="info etoils"> <?php
                     for($i=0;$i<10;$i++){
                         if($i<$info_recette['note']){
@@ -228,9 +237,9 @@ class view{
             <div class="container pt-4">
                 <section class="mb-4">
                     <ul class="row" style="list-style: none;">
-                        <li class="col text-decoration-none"><a href="#"> Page d’accueil </a></li>
-                        <li class="col text-decoration-none"><a href="#"> News </a></li>
-                        <li class="col text-decoration-none"><a href="#"> Idées recette</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/"> Page d’accueil </a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/news/afficher_news"> News </a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/idee_recette/afficher_form_page"> Idées recette</a></li>
                         <li class="col text-decoration-none"><a href="#"> Healthy</a></li>
                         <li class="col text-decoration-none"><a href="#"> Saisons</a></li>
                         <li class="col text-decoration-none"><a href="#"> Fêtes</a></li>

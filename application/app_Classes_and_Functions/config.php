@@ -10,3 +10,4 @@ define('DATABASENAME','tdw');
 define('HOSTNAME','localhost');
 define('LIEN_CATEGORIES',"http://localhost/Projet_TDW/public/categorie/affiche_page_categorie&categorie=");
 define('LIEN_RECETTES',"http://localhost/Projet_TDW/public/recette/affiche_page_recette&id_recette=");
+define('LIEN_NEWS',"http://localhost/Projet_TDW/public/news/affiche_page_new&id_news=");
