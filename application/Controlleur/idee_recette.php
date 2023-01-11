@@ -5,7 +5,10 @@ class idee_recette extends Controlleurs{
         $view = new idee_recette_view();
         $view->afficher_entete_haut("idee_recette.css","Ideé recettes");
         $view->afficher_menu();
-        $view->afficher_form();
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        $ingredients = $model->get_all_ingredients();
+        $view->afficher_form($ingredients);
         $view->afficher_footer(); 
         $view->afficher_entete_bas("idee_recette.js");
     }
@@ -26,6 +29,8 @@ class idee_recette extends Controlleurs{
         $nb_ingredient_recettes = $model->get_nb_ingredient_in_recettes();
         $id_recettes=array();
         foreach($result_recettes as $element){
+
+            // LE SEUIL POUR IDEE RECETTES
             if($element["nb_ingr"]>=get_nb_ingredient($nb_ingredient_recettes,$element["id_recette"])*0.7){
                 array_push($id_recettes,$element["id_recette"]);
             }

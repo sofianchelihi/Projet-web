@@ -151,55 +151,14 @@ body::-webkit-scrollbar-thumb {
     font-weight: 500;
 }
 
-.divmenu li:nth-child(3) a{
+.divmenu li:nth-child(6) a{
     color: orange!important;
     font-size: 13px!important;
     font-weight: 700!important;
 }
 
-.form form{
-    display: flex;
-    justify-content: center;
-}
 
-#send{
-    width: 20%!important;
-}
 
-.form form input{
-    width: 35%;
-    margin-right: 10px;
-}
-.form form button{
-    width: 20%;
-}
-
-.form ul{
-    width: 40%;
-    margin-left: 25%;
-    margin-top: 20px;
-    margin-bottom: 32px;
-}
-
-.form span{
-    padding-left: 25%;
-    margin-top: 15px;
-    margin-bottom: 3px;
-    font-weight: 400;
-    font-size: 19px;
-    color: gray;
-}
-
-.btns{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-
-.form .send,.cancel{
-    width: 15%;
-    margin-right: 2%;
-}
 
 .recettes{
     width: 95%;
@@ -209,51 +168,11 @@ body::-webkit-scrollbar-thumb {
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    min-height: 440px;
 }
 
 .info{
     display: none!important;
-}
-
-
-.filtres{
-    width: 100%;
-    margin-left: 2.5%;
-    height: auto;
-    margin-top: 50px;
-    margin-bottom: 40px;
-    display: none;
-    flex-wrap: wrap;
-}
-
-.filtres select,input{
-    width: 12%!important;
-}
-
-
-#filtr{
-    width: 12%!important;
-}
-
-
-.tries{
-    width: 60%;
-    margin-left: 37.5%;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.tries select{
-    width: 38%!important;
-}
-
-
-.tries button{
-    width: 22%!important;
 }
 
 

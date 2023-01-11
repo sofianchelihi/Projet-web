@@ -12,13 +12,13 @@ function AddRecetteInfo($recettes,$notations,$saisons,$estimation_calories){
     for($i=0 ; $i<count($recettes) ;$i++){ 
         foreach($estimation_calories as $calorie){
             if($recettes[$i]["id_recette"]==$calorie["id_recette"]){
-                $recettes[$i]["calorie"]=$calorie["calories"];
+                $recettes[$i]["calorie"]=ceil($calorie["calories"]);
                 break;
             }
         }
         foreach($notations as $note){
             if($recettes[$i]["id_recette"]==$note["id_recette"]){
-                $recettes[$i]["note"]=$note["note"];
+                $recettes[$i]["note"]=ceil($note["note"]);
                 break;
             }
             else{
@@ -44,6 +44,9 @@ function get_nb_ingredient($recettes,$id_recette){
         if($recette["id_recette"]==$id_recette) return $recette["nb_ingr"];
     }
 }
+
+
+
 
 
 

@@ -62,4 +62,12 @@ class recette_model extends Model{
     public function getCategories(){
         return $this->requete2("SELECT DISTINCT nom_categorie FROM categorie;");
     }
+
+    public function get_recette_par_fete($fete){
+        if($fete!=''){
+            return $this->requete1('SELECT recette.* FROM fetes INNER JOIN recette_fetes ON fetes.id_fete = recette_fetes.id_fete INNER JOIN recette ON recette_fetes.id_recette=recette.id_recette WHERE fetes.nom_fete=? ORDER BY fetes.id_fete ASC',[$fete]);
+        }else{
+            return $this->requete2("SELECT * FROM recette");
+        }
+    }
 }

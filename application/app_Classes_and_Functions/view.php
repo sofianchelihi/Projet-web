@@ -66,13 +66,13 @@ class view{
                             <a href="http://localhost/Projet_TDW/public/idee_recette/afficher_form_page">Idées recette</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Healthy</a>
+                            <a href="http://localhost/Projet_TDW/public/healthy/afficher_healthy_recettes">Healthy</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Saisons</a>
+                            <a href="http://localhost/Projet_TDW/public/saison/afficher_recette_of_saison&saison=">Saisons</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Fêtes</a>
+                            <a href="http://localhost/Projet_TDW/public/fete/afficher_recette_de_fete&fete=">Fêtes</a>
                         </li>
                         <li class="col text-center">
                             <a href="#">Nutrition</a>
@@ -89,36 +89,38 @@ class view{
 
     public function afficher_card($info_recette,$total_info){ ?>
         <div class="cart">
-            <img src="<?php echo $info_recette['lien_image']  ?>" class="cardImg"  alt="Error">
+            <img src="<?php if(isset($info_recette['lien_image']))  echo $info_recette['lien_image']  ?>" class="cardImg"  alt="Error">
             <div class="cardBody">
-                <h5  ><?php echo $info_recette['titre_recette']  ?></h5>
-                <p><?php echo afficher_description($info_recette['description'],$total_info,100)   ?></p>
+                <h5  ><?php if(isset($info_recette['titre_recette']))  echo $info_recette['titre_recette']  ?></h5>
+                <p><?php if(isset($info_recette['description']))  echo afficher_description($info_recette['description'],$total_info,100)   ?></p>
                 <?php 
                 if(!$total_info){ 
                     if($info_recette['id_recette']!=null){ 
                         ?>
-                        <a href="<?php echo LIEN_RECETTES.$info_recette['id_recette'] ?>" class="voirPlus">Voir plus</a>
+                        <a target="_blank" href="<?php echo LIEN_RECETTES.$info_recette['id_recette'] ?>" class="voirPlus">Voir plus</a>
                         <?php 
                     }else{
                         ?>
-                        <a href="<?php echo LIEN_NEWS.$info_recette['id_news'] ?>" class="voirPlus">Voir plus</a>
+                        <a target="_blank" href="<?php echo LIEN_NEWS.$info_recette['id_news'] ?>" class="voirPlus">Voir plus</a>
                         <?php
                     }
                 }?>
                 <div class="info etoils"> <?php
-                    for($i=0;$i<10;$i++){
-                        if($i<$info_recette['note']){
-                        ?>
-                            <b class="color">☆</b>
-                        <?php  
-                        }
-                        else{
-                        ?>
-                            <b >☆</b>
-                        <?php
+                    if( isset($info_recette['note']) ){
+                        for($i=0;$i<10;$i++){
+                            if($i<$info_recette['note']){
+                            ?>
+                                <b class="color">☆</b>
+                            <?php  
+                            }
+                            else{
+                            ?>
+                                <b >☆</b>
+                            <?php
+                            }
                         }
                     }
-                 ?>
+                  ?>
                 </div>
                 <div class="diffic info">
                     <span>Difficulté de la recette :</span>
@@ -147,20 +149,22 @@ class view{
                 </div>
                 <div class="notation info">
                     <span>Notation :</span>
-                    <p><?php echo ceil($info_recette['note']) ?></p>
+                    <p><?php if(isset($info_recette['note']))  echo ceil($info_recette['note']) ?></p>
                     <b>sur dix</b>
                 </div>
                 <div class="nb_calories info">
                     <span>Nombre de calories :</span>
-                    <p><?php echo ceil($info_recette['calorie']) ?></p>
+                    <p><?php if(isset($info_recette['calorie']))  echo ceil($info_recette['calorie']) ?></p>
                     <b>cal. pour 100 g</b>
                 </div>
                 <div class="saisons info">
                     <span>Les saisons : </span>
                     <p>
                     <?php 
-                        foreach($info_recette['saisons'] as $saison){
-                            echo $saison." - ";
+                        if(isset($info_recette['saisons'])){
+                            foreach($info_recette['saisons'] as $saison){
+                                echo $saison." - ";
+                            }
                         }
                     ?>
                     </p>
@@ -169,10 +173,12 @@ class view{
                     <span> Les ingredients :</span>
                     <ul>
                     <?php 
-                        if(count($info_recette['ingredients'])!=0){
-                            foreach($info_recette['ingredients'] as $ingredient){ ?>
-                                <li><?php echo $ingredient["nom_ingr"] ." : ".$ingredient["quantite"] ?></li>
-                            <?php
+                        if(isset($info_recette['ingredients'])){
+                            if(count($info_recette['ingredients'])!=0){
+                                foreach($info_recette['ingredients'] as $ingredient){ ?>
+                                    <li><?php echo $ingredient["nom_ingr"] ." : ".$ingredient["quantite"] ?></li>
+                                <?php
+                                }
                             }
                         }
                     ?>
@@ -182,10 +188,12 @@ class view{
                     <span> Les etapes :</span>
                     <ul>
                     <?php 
-                        if(count($info_recette['etapes'])!=0){
-                            foreach($info_recette['etapes'] as $etap){ ?>
-                                <li><?php echo $etap ?></li>
-                            <?php
+                        if(isset($info_recette['etapes'])){
+                            if(count($info_recette['etapes'])!=0){
+                                foreach($info_recette['etapes'] as $etap){ ?>
+                                    <li><?php echo $etap ?></li>
+                                <?php
+                                }
                             }
                         }
                     ?>
@@ -193,18 +201,6 @@ class view{
                 </div>
                 <a class="video info" href="<?php echo $info_recette['lien_video'] ?>"> Voir video </a>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     <?php    
     }
@@ -226,7 +222,7 @@ class view{
     
     public function affiche_categories($info_categories,$total_info){
         foreach($info_categories as $categorie => $categorie_recettes) { ?>
-            <a class="nom_categorie" href="<?php echo LIEN_CATEGORIES.$categorie ?>"><?php echo $categorie ?></a>
+            <a class="nom_categorie" target="_blank" href="<?php echo LIEN_CATEGORIES.$categorie ?>"><?php echo $categorie ?></a>
             <?php $this->affiche_categorie($categorie_recettes,$total_info) ?>
           <?php
         }
@@ -240,9 +236,9 @@ class view{
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/"> Page d’accueil </a></li>
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/news/afficher_news"> News </a></li>
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/idee_recette/afficher_form_page"> Idées recette</a></li>
-                        <li class="col text-decoration-none"><a href="#"> Healthy</a></li>
-                        <li class="col text-decoration-none"><a href="#"> Saisons</a></li>
-                        <li class="col text-decoration-none"><a href="#"> Fêtes</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/healthy/afficher_healthy_recettes"> Healthy</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/saison/afficher_recette_of_saison&saison="> Saisons</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/fete/afficher_recette_de_fete&fete="> Fêtes</a></li>
                         <li class="col text-decoration-none"><a href="#"> Nutrition</a></li>
                         <li class="col text-decoration-none"><a href="#"> Contact</a></li>
                     </ul>
@@ -253,6 +249,44 @@ class view{
             </div>
         </footer>
         <?php
+    }
+
+
+    public function afficher_filtre(){?>
+        <form class="filtres" id="filtres">
+            <select class="form-select saison_filre" aria-label="Default select example">
+                <option selected>Saison</option>
+                <option value="hiver">Hiver</option>
+                <option value="printemps">Printemps</option>
+                <option value="été">Eté</option>
+                <option value="automne">Automne</option>
+            </select>
+            <input type="number" class="form-control temp_prepa_filtr" placeholder=" Temp de préparation" aria-describedby="basic-addon1">
+            <input type="number" class="form-control temp_cuis_filtr" placeholder=" Temp de cuisson" aria-describedby="basic-addon1">
+            <input type="number" class="form-control temp_total_filtr" placeholder=" Temp total" aria-describedby="basic-addon1">
+            <input type="number" class="form-control notation_filtr" placeholder=" Notation" aria-describedby="basic-addon1">
+            <input type="number" class="form-control calories_filtr" placeholder=" Nombre de calories" aria-describedby="basic-addon1">
+            <button type="submit" class="btn btn-primary filre" id="filtr"> Filtrer </button>
+        </form>
+
+
+        <form class="tries" id="tries">
+            <select class="form-select type_tri" aria-label="Default select example">
+                <option selected>Trier par </option>
+                <option value="temp_prepa">Temp de préparation</option>
+                <option value="temp_cuis">Temp de cuisson</option>
+                <option value="temp_total">Temp total</option>
+                <option value="calories">Nombre de calories</option>
+                <option value="notation">Notation</option>
+            </select>
+            <select class="form-select ordre_tri" aria-label="Default select example">
+                <option selected>Par ordre</option>
+                <option value="croissant">Croissant</option>
+                <option value="decroissant">Decroissant</option>
+            </select>
+            <button type="submit" class="btn btn-primary tri"> Trier </button>
+        </form>
+    <?php
     }
 
     
