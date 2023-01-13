@@ -29,7 +29,6 @@ class idee_recette extends Controlleurs{
         $nb_ingredient_recettes = $model->get_nb_ingredient_in_recettes();
         $id_recettes=array();
         foreach($result_recettes as $element){
-
             // LE SEUIL POUR IDEE RECETTES
             if($element["nb_ingr"]>=get_nb_ingredient($nb_ingredient_recettes,$element["id_recette"])*0.7){
                 array_push($id_recettes,$element["id_recette"]);

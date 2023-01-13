@@ -21,16 +21,20 @@ class ingredients extends Model{
     }
 
     public function get_recettes($recettes_ids){
-        $requete = "SELECT * FROM recette WHERE ";
-        foreach($recettes_ids as $recette){
-           $requete .=" id_recette = '".$recette."' OR ";    
+        if(count($recettes_ids)!=0){
+            $requete = "SELECT * FROM recette WHERE ";
+            foreach($recettes_ids as $recette){
+            $requete .=" id_recette = '".$recette."' OR ";    
+            }
+            $requete=substr($requete, 0,strlen($requete)-3); 
+            $recettes=  $this->requete2($requete);
+            $estimations_calories = $this->requete2("SELECT recette_ingredient.id_recette, AVG(calories) calories FROM ingredient INNER JOIN recette_ingredient ON ingredient.id_ingr = recette_ingredient.id_ingr GROUP BY id_recette");
+            $notations = $this->requete2("SELECT id_recette,AVG(note) note FROM noter GROUP BY id_recette");       
+            $saisons=$this->requete2("SELECT * FROM recette_saison INNER JOIN saison ON recette_saison.id_saison = saison.id_saison;");
+            return AddRecetteInfo($recettes,$notations,$saisons,$estimations_calories);
+        }else{
+            return array();
         }
-        $requete=substr($requete, 0,strlen($requete)-3); 
-        $recettes=  $this->requete2($requete);
-        $estimations_calories = $this->requete2("SELECT recette_ingredient.id_recette, AVG(calories) calories FROM ingredient INNER JOIN recette_ingredient ON ingredient.id_ingr = recette_ingredient.id_ingr GROUP BY id_recette");
-        $notations = $this->requete2("SELECT id_recette,AVG(note) note FROM noter GROUP BY id_recette");
-        $saisons=$this->requete2("SELECT * FROM recette_saison INNER JOIN saison ON recette_saison.id_saison = saison.id_saison;");
-        return AddRecetteInfo($recettes,$notations,$saisons,$estimations_calories);
     }
 
 
@@ -65,5 +69,12 @@ class ingredients extends Model{
         }else{
             return $this->requete2('SELECT *FROM recette');
         }
+    }
+
+
+    public function get_ingredients(){
+        $ingredients = $this->requete2("SELECT ingredient.*,info_nutr.* FROM ingredient INNER JOIN ingr_info_nutr ON ingredient.id_ingr = ingr_info_nutr.id_ingr INNER JOIN info_nutr ON ingr_info_nutr.id_info = info_nutr.id_info");
+        $saisons = $this->requete2("SELECT * FROM ingredient_saison INNER JOIN saison ON ingredient_saison.id_saison = saison.id_saison ORDER BY ingredient_saison.id_ingr");
+        return AddIngredientsInfo($ingredients,$saisons);
     }
 }

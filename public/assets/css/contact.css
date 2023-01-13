@@ -1,0 +1,273 @@
+body::-webkit-scrollbar{
+    width: 8px; 
+    height: 10px;
+    border-radius: 20px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.425); /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: orange; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid rgba(128, 128, 128, 0.425); /* creates padding around scroll thumb */
+}
+
+.divmenu{
+    width: 100%;
+    height: 120px;
+    display: block;
+}
+
+.contact{
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.868);
+    color: white;
+    margin: 0px;
+    align-items: center;
+}
+
+.contact div:nth-child(2){
+    display: flex;
+    padding-left: 60px;
+}
+
+.contact div:nth-child(2) a img{
+    width: 25px!important;
+    height: 25px!important;
+    margin-left: 30px;
+    background-color: inherit;
+}
+
+.contact div:nth-child(1){
+   display: flex;
+   padding-left: 250px;
+}
+
+.contact div:nth-child(1) a{
+   text-decoration: none;
+   color:rgb(145, 145, 145) ;
+   font-size: 17px;
+   font-weight: 500;
+   margin-left: 25px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.menu{
+    width: 100%!important;
+    margin: 0px!important;
+    height: 80px;
+    color: white;
+    background-color: black;
+    align-items: center;
+}
+
+.menu div:nth-child(1){
+    display: flex;
+    justify-content: center;
+}
+.menu div:nth-child(1) object{
+    width: 80px;
+    height: 90px;
+    object-fit: contain;
+    background-color: inherit;
+    color: white;
+}
+
+.menu div:nth-child(2) ul{
+    list-style: none;
+}
+
+.menu div:nth-child(2) ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.divmenu li:nth-child(8) a{
+    color: orange!important;
+    font-size: 13px!important;
+    font-weight: 700!important;
+}
+
+.contact_div{
+    width: 80%;
+    height: 800px;
+    margin-left: 10%;
+    display: block;
+}
+
+.inputs{
+    width: 100%;
+    height: 500px;
+    margin-top: 100px;
+    display: flex;
+}
+
+.locations{
+    width: 35%;
+    height: 500px;
+    display: block;
+}
+
+.locations img{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;  
+    margin-right: 3%;
+}
+
+.locations p{
+    width: 100%;
+    height: 40px;
+    padding-left: 3%;
+    font-weight: 400;
+    font-size: 32px;
+    color: #373754;
+}
+.locations address{
+    width: 100%;
+    height: 40px;
+    padding-left: 3%;
+    padding-top: 2%;
+    font-weight: 300;
+    font-size: 16px;
+    color: #1B1B3B80;
+}
+
+
+.locationdiv{
+    display: flex;
+    width: 100%;
+    height: 150px;
+    margin-top: 15px;
+}
+
+.locationdiv div{
+    display: block;
+    width: 60%;
+}
+
+.forms{
+    width: 65%;
+    height: 500px;
+    display: block;
+}
+
+
+.c1{
+    width: 100%;
+    height: 90px;
+    margin-top: 10px;
+    display: flex;
+}
+.c1 div{
+    width: 47%;
+    margin-left: 3%;
+    height: 90px;
+}
+
+.c1 input{
+    width: 100%;
+    height: 80px;
+}
+
+.c2{
+    width: 100%;
+    height: 140px;
+    margin-top: 10px;
+}
+
+.c2 input{
+    margin-left: 3%;
+    width: 97%;
+    height: 130px;
+}
+.c3{
+    width: 100%;
+    height: 240px;
+    margin-top: 10px;
+}
+
+.c3 textarea{
+    margin-left: 3%;
+    width: 97%;
+    height: 230px;
+}
+
+input,textarea{
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    border : none
+}
+
+.but_class{
+    width: 100%;
+}
+
+.but_class button{
+    width: 60%;
+    height: 80px;
+  /*  background-color: rgba(10, 6, 99, 0.75);*/
+    background-color: #0d6efd;
+    border-radius: 100px;
+    margin-left: 37%;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+    margin-top: 2%;
+}
+
+.sponsors{
+    width: 100%;
+    height: 55px;
+    text-align: center;
+  /*  color: #1B1B3B;*/
+    color: #0d6efd;
+    font-size: 38px;
+    font-weight: bolder;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.login{
+    position: relative;
+    cursor: pointer;
+}
+
+.login ul{
+    position: absolute;
+    top:38px;
+    color: black;
+    left: 0px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px gray;
+    padding-right: 20px;
+    padding-top: 5px;
+    height: 100px;
+    text-align: start;
+    font-weight: 600;
+    display: none;
+}
+
+.login:hover ul{
+    display: block;
+}
+
+.login ul li{
+    height: 33px;
+}
+
+.login ul li a{
+    color: black!important;
+}
+
+

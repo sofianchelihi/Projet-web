@@ -45,6 +45,19 @@ function get_nb_ingredient($recettes,$id_recette){
     }
 }
 
+function AddIngredientsInfo($ingredients,$saisons){
+    for($i=0 ; $i<count($ingredients) ;$i++){ 
+        $ingredient_saison=array();
+        foreach($saisons as $saison){
+            if($ingredients[$i]["id_ingr"]==$saison["id_ingr"]){
+                array_push($ingredient_saison,$saison["nom_saison"]);
+            }
+        }
+        $ingredients[$i]["saisons"]=$ingredient_saison;
+    }
+    return $ingredients;
+}
+
 
 
 

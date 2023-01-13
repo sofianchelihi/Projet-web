@@ -55,7 +55,7 @@ class recette_model extends Model{
         $recettes = $this->requete1("SELECT recette.* FROM recette INNER JOIN categorie  ON recette.categorie = categorie.id_categorie  AND categorie.nom_categorie=?",[$categorie]);
         $estimations_calories = $this->requete2("SELECT recette_ingredient.id_recette, AVG(calories) calories FROM ingredient INNER JOIN recette_ingredient ON ingredient.id_ingr = recette_ingredient.id_ingr GROUP BY id_recette");
         $notations = $this->requete2("SELECT id_recette,AVG(note) note FROM noter GROUP BY id_recette");
-        $saisons=$this->requete2("SELECT * FROM recette_saison INNER JOIN saison ON recette_saison.id_saison = saison.id_saison;");
+        $saisons=$this->requete2("SELECT * FROM recette_saison INNER JOIN saison ON recette_saison.id_saison = saison.id_saison;");  
         return AddRecetteInfo($recettes,$notations,$saisons,$estimations_calories);
     }
 

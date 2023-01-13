@@ -8,7 +8,7 @@ class saison extends Controlleurs{
         $model = new ingredients();
         $recettes = $model->get_recette_with_ingredients_of_saisons($saison);
         $titre = $saison;
-        if($titre=='') $titre = "SQaisons";
+        if($titre=='') $titre = "Saisons";
         $view->afficher_entete_haut("saison.css",$titre);
         $view->afficher_menu();
         $view->afficher_filtre();

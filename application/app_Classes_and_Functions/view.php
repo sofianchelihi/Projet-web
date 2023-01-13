@@ -51,10 +51,10 @@ class view{
                 </div>
             </div>
             <div class="row w-100 menu">
-                <div class="col-3"> 
+                <div class="col-2"> 
                     <object data="<?php echo ROOTIMG?>logo2.svg"></object> 
                 </div>
-                <div class="col-8">
+                <div class="col-10">
                     <ul class="row"> 
                         <li class="col text-center">
                             <a href="http://localhost/Projet_TDW/public/">Page d’accueil</a>
@@ -75,10 +75,18 @@ class view{
                             <a href="http://localhost/Projet_TDW/public/fete/afficher_recette_de_fete&fete=">Fêtes</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Nutrition</a>
+                            <a href="http://localhost/Projet_TDW/public/nutrition/afficher_ingredients">Nutrition</a>
                         </li>
                         <li class="col text-center">
-                            <a href="#">Contact</a>
+                            <a href="http://localhost/Projet_TDW/public/contact/afficher_contact">Contact</a>
+                        </li>
+                        <li class="login col text-center">
+                            <object data="<?php echo ROOTIMG?>setting.svg" type=""></object>
+                            <ul>
+                                <li><a href="#"> Login </a></li>
+                                <li><a href="#"> Deconnect </a></li>
+                                <li><a href="#"> Profil </a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -239,8 +247,8 @@ class view{
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/healthy/afficher_healthy_recettes"> Healthy</a></li>
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/saison/afficher_recette_of_saison&saison="> Saisons</a></li>
                         <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/fete/afficher_recette_de_fete&fete="> Fêtes</a></li>
-                        <li class="col text-decoration-none"><a href="#"> Nutrition</a></li>
-                        <li class="col text-decoration-none"><a href="#"> Contact</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/nutrition/afficher_ingredients"> Nutrition</a></li>
+                        <li class="col text-decoration-none"><a href="http://localhost/Projet_TDW/public/contact/afficher_contact"> Contact</a></li>
                     </ul>
                 </section>
             </div>
