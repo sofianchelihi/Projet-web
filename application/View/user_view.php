@@ -73,18 +73,39 @@ class user_view extends view{
 
 
     public function afficher_profile($recettes,$notations,$info_user){?>
-        <div class="">
-
+        <div class="info_profile">
+            <object data="<?php echo ROOTIMG?>logo2.svg"></object> 
+            <div>
+                <label>Nome et premon   :<?php echo " ".$info_user["nom_user"]." ".$info_user["prenom_user"]?></label>
+                <label>Email    :<?php echo "  ".$info_user["email_user"]?></label>
+                <label>Date de naissance    :<?php echo " ".$info_user["date_de_naissance"]?></label>
+            </div>
         </div>
-        <div class="">
+        <div class="titres">
+            <label>Les recettes préféres :</label>
+            <label>Les notations :</label>
         </div>
-        <label>Les recettes préféres :</label>
-        <div class="recettes">
-            <?php
-                foreach($recettes as $recette):
-                    $this->afficher_card($recette,false);
-                endforeach;
-            ?>
+        <div class="note_prefere">
+            <div class="recettes">
+                <?php
+                    foreach($recettes as $recette):
+                        $this->afficher_card($recette,false);
+                    endforeach;
+                ?>
+            </div>
+            <div class="notations">
+                <ol class="list-group list-group-numbered"><?php
+                    foreach($notations as $notation){?>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold"><?php echo $notation["titre_recette"]?></div>
+                            </div>
+                            <span class="badge bg-primary rounded-pill"><?php echo $notation["note"]?></span>
+                        </li>
+                      <?php 
+                    }
+                ?></ol>
+            </div>
         </div>
       <?php
     }

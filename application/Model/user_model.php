@@ -60,6 +60,6 @@ class user_model extends Model{
     }
 
     public function get_notations($id_user){
-
+        return $this->requete1('SELECT recette.titre_recette,noter.note FROM noter INNER JOIN recette ON noter.id_recette=recette.id_recette AND noter.id_user=?',[$id_user]);
     }
 }
