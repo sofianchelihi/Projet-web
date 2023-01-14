@@ -28,7 +28,7 @@ body::-webkit-scrollbar-thumb {
     top: 0px;
 }
 
-.divmenu li:nth-child(1) a{
+.menu div:nth-child(2) ul li.col:nth-child(1) a{
     color: orange!important;
     font-size: 13px!important;
     font-weight: 700!important;
@@ -280,6 +280,43 @@ body::-webkit-scrollbar-thumb {
     border-radius: 6px;
     font-weight: 500;
 }
+
+
+
+.login{
+    position: relative;
+    cursor: pointer;
+}
+
+.login ul{
+    position: absolute;
+    top:38px;
+    color: black;
+    left: 0px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px gray;
+    padding-right: 20px;
+    padding-top: 5px;
+    height:auto ;
+    padding-bottom: 10px;
+    text-align: start;
+    font-weight: 600;
+    display: none;
+}
+
+.login:hover ul{
+    display: block;
+}
+
+.login ul li{
+    height: 33px;
+}
+
+.login ul li a{
+    color: black!important;
+}
+
 
 
 

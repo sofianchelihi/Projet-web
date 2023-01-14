@@ -82,10 +82,15 @@ class view{
                         </li>
                         <li class="login col text-center">
                             <object data="<?php echo ROOTIMG?>setting.svg" type=""></object>
-                            <ul>
-                                <li><a href="#"> Login </a></li>
-                                <li><a href="#"> Deconnect </a></li>
-                                <li><a href="#"> Profil </a></li>
+                            <ul><?php
+                                if(isset($_SESSION["token"]) && isset($_SESSION["id"])){?>
+                                    <li><a href="http://localhost/Projet_TDW/public/user/deconnect"> Deconnect </a></li>
+                                    <li><a href="http://localhost/Projet_TDW/public/user/afficher_profile"> Profil </a></li>
+                                 <?php
+                                }else{ ?>
+                                    <li><a href="http://localhost/Projet_TDW/public/user/afficher_login_page&message="> Login </a></li>
+                                <?php
+                                }?>
                             </ul>
                         </li>
                     </ul>
@@ -207,7 +212,6 @@ class view{
                     ?>
                     </ul>
                 </div>
-                <a class="video info" href="<?php echo $info_recette['lien_video'] ?>"> Voir video </a>
             </div>
         </div>
     <?php    
@@ -272,7 +276,7 @@ class view{
             <input type="number" class="form-control temp_prepa_filtr" placeholder=" Temp de préparation" aria-describedby="basic-addon1">
             <input type="number" class="form-control temp_cuis_filtr" placeholder=" Temp de cuisson" aria-describedby="basic-addon1">
             <input type="number" class="form-control temp_total_filtr" placeholder=" Temp total" aria-describedby="basic-addon1">
-            <input type="number" class="form-control notation_filtr" placeholder=" Notation" aria-describedby="basic-addon1">
+            <input type="number" class="form-control notation_filtr" placeholder=" Notation" aria-describedby="basic-addon1" min="1" max="10">
             <input type="number" class="form-control calories_filtr" placeholder=" Nombre de calories" aria-describedby="basic-addon1">
             <button type="submit" class="btn btn-primary filre" id="filtr"> Filtrer </button>
         </form>
