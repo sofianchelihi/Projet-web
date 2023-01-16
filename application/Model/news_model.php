@@ -63,4 +63,8 @@ class news_model extends Model{
     public function ajouter_recette_news($id_recette){
         return $this->requete2("INSERT INTO news(id_recette) VALUES (".$id_recette.")");
     }
+
+    public function ajouter_new_news($titre,$description,$nom_image){
+        return $this->requete2("INSERT INTO news(titre_news,description, liens_image, lien_video) VALUES ('".$titre."','".$description."','http://localhost/Projet_TDW/public/assets/images/".$nom_image."','#')");
+    }
 }

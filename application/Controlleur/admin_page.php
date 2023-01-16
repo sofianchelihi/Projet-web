@@ -40,4 +40,15 @@ class admin_page extends Controlleurs{
         }
         header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news");
     }
+
+    public function add_new_news(){
+        $this->check_admin_login();
+        $this->getModel("news_model");
+        $model = new news_model();
+        if(isset($_POST['titre_news']) && isset($_POST["para_news"])){
+            move_uploaded_file($_FILES['image_news']['tmp_name'],"../public/assets/images/".$_FILES['image_news']['name']);
+            $model->ajouter_new_news($_POST['titre_news'],$_POST["para_news"],$_FILES['image_news']['name']);
+        }
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news");
+    }
 }

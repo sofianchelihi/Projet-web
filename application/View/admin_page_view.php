@@ -25,7 +25,7 @@ class admin_page_view extends view_admin{
     public function afficher_gestion_news($news){?>
         <div class="recette">
             <form action="http://localhost/Projet_TDW/njKMda/admin_page/add_new_recette" method="post">
-                <input type="text" list="recettes" class="form-control" name="recette">
+                <input type="text" list="recettes" class="form-control" name="recette" required placeholder="Titre recette">
                 <datalist id="recettes">
                     <?php
                         require '../application/Controlleur/recette.php';
@@ -39,8 +39,11 @@ class admin_page_view extends view_admin{
                 </datalist>
                 <button type="submit" class="btn btn-primary"> Ajouter recette</button>
             </form>
-            <form action="" method="post">
-
+            <form action="http://localhost/Projet_TDW/njKMda/admin_page/add_new_news" method="post" enctype="multipart/form-data" >
+                <input type="file" name="image_news" class="form-control" required accept="image/*" placeholder="Image news">
+                <input type="text" class="form-control" name="titre_news" required placeholder="Titre">
+                <textarea name="para_news" class="form-control" required placeholder="Description"></textarea>
+                <button type="submit" class="btn btn-primary"> Ajouter new</button>
             </form>
         </div>
         <ol class="list-group list-group-numbered px-4 my-5">

@@ -75,14 +75,37 @@ body::-webkit-scrollbar-thumb {
 .recette form{
     width: 100%;
     display: flex;
+    margin-top: 25px;
 }
 
-.recette form input{
+.recette form:nth-child(1) input{
     width: 79%!important;
 }
 
-.recette form button{
+.recette form:nth-child(1) button{
     width: 19%!important;
     margin-left: 2%;
 }
+
+
+
+.recette form:nth-child(2) input{
+    width: 24%!important;
+    margin-right: 1%;
+    height: 40px!important;
+}
+
+.recette form:nth-child(2) textarea{
+    width: 24%!important;
+    margin-right: 1%;
+    height: 30px!important;
+}
+
+
+.recette form:nth-child(2) button{
+    width: 24%!important;
+    margin-left: 1%;
+}
+
+
 
