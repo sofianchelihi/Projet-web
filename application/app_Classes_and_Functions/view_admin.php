@@ -20,13 +20,42 @@ class view_admin{
     }
 
 
-
-
     public function afficher_entete_bas($js){ ?>
                 <script src="<?php echo ROOTJS.$js?>"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
             </body>
         </html>
     <?php
+    }
+
+    public function afficher_menu(){ ?>
+        <div class="row w-100 menu">
+            <div class="col-2"> 
+                <object data="<?php echo ROOTIMG?>logo2.svg"></object> 
+            </div>
+            <div class="col-10">
+                <ul class="row"> 
+                    <li class="col text-center">
+                        <a href="#">Gestion des recettes</a>
+                    </li>
+                    <li class="col text-center">
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news">Gestion des News</a>
+                    </li>
+                    <li class="col text-center">
+                        <a href="#">La gestion des utilisateurs</a>
+                    </li>
+                    <li class="col text-center">
+                        <a href="#">Gestion de la nutrition</a>
+                    </li>
+                    <li class="col text-center">
+                        <a href="#">Paramètres</a>
+                    </li>
+                    <li class="col text-center">
+                        <a class="btn btn-primary" href="http://localhost/Projet_TDW/njKMda/login_admin/deconnect">Deconnecter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      <?php
     }
 }

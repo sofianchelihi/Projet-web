@@ -28,5 +28,11 @@ class recette extends Controlleurs{
         }
         header("Location: ".LIEN_RECETTES.$id_recette);
     }
+
+    public function get_recettes_not_news(){
+        $this->getModel("recette_model");
+        $model=new recette_model();
+        return $model->get_recettes_not_news();
+    }
 }
 ?>

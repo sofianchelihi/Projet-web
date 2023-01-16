@@ -50,4 +50,17 @@ class news_model extends Model{
         $new_info["ingredients"]=array();
         return $new_info;
     }
+
+    public function get_all_news(){
+        return $this->requete2("SELECT news.id_news,news.titre_news,recette.titre_recette,recette.id_recette FROM news LEFT JOIN recette ON news.id_recette= recette.id_recette ORDER BY news.id_news;");
+    }
+
+    public function sup_news($id_new){
+        return $this->requete1("DELETE FROM news WHERE id_news=?",[$id_new]);
+    }
+
+
+    public function ajouter_recette_news($id_recette){
+        return $this->requete2("INSERT INTO news(id_recette) VALUES (".$id_recette.")");
+    }
 }

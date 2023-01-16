@@ -8,7 +8,7 @@ class user_view extends view{
         <form id="form" method="POST" action="http://localhost/Projet_TDW/public/user/login">
             <div class="forme">
                 <label> Username</label>
-                <input type="text" name="email" id="email" required ><br>
+                <input type="email" name="email" id="email" required ><br>
                 <label> Password</label>
                 <input type="password" name="password" id="password" required><br>
                 <button type="submit" id="send"> Sign in</button>

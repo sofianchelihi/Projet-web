@@ -1,11 +1,11 @@
 <?php
 class App_admin{
-    private $controlleur='page_admin';
-    private $function='afficher_page_admin';
+    private $controlleur='login_admin';
+    private $function='afficher_login_admin';
     private $parametres= array();
   
     private function getUrl(){
-        $url = $_GET['url'] ?? 'page_admin/afficher_page_admin';
+        $url = $_GET['url'] ?? 'login_admin/afficher_login_admin';
         $url = explode("/",trim( $url ));
         return $url;
     }
@@ -17,11 +17,16 @@ class App_admin{
     public function getControlleur(){
         $url = $this->getUrl();
         $this->getParametre();
+
+        //here
+        if($url[0]=="login_admin" && $url[1]=="afficher_login_admin" && count($this->parametres)==0) array_push($this->parametres,"");
+        //here
+
         $nomFichier = "../application/Controlleur/".ucfirst( $url[0]).".php";
         if(file_exists($nomFichier)){
             require $nomFichier;
             $this->controlleur=ucfirst( $url[0]);
-            $this->function = $url[1] ?? 'afficher_page_admin';
+            $this->function = $url[1] ?? 'afficher_login_admin';
         }else{
             $nomFichier = "../application/Controlleur/controlleurNotFond.php";
             require $nomFichier;

@@ -70,4 +70,8 @@ class recette_model extends Model{
             return $this->requete2("SELECT * FROM recette");
         }
     }
+
+    public function get_recettes_not_news(){
+        return $this->requete2("SELECT recette.id_recette,recette.titre_recette FROM recette LEFT JOIN news ON recette.id_recette = news.id_recette WHERE id_news IS NULL;");
+    }
 }
