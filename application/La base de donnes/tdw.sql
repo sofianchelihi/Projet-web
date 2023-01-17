@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 13 jan. 2023 à 11:36
+-- Généré le : mar. 17 jan. 2023 à 01:07
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.0
 
@@ -44,7 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nom_admin`, `prenom_admin`, `email_admin`, `age_admin`, `date_de_naissance`, `sexe`, `password`, `token`) VALUES
-(1, 'chelihi', 'sofiane', 'admin', 21, '2022-12-11', 'm', 'admin', ' ');
+(1, 'chelihi', 'sofiane', 'admin', 21, '2022-12-11', 'm', 'admin', 'ee547176ee0fde874569f74669026513');
 
 -- --------------------------------------------------------
 
@@ -1067,7 +1067,6 @@ INSERT INTO `news` (`id_news`, `titre_news`, `description`, `liens_image`, `lien
 (2, 'Importance of sesame seeds in winter and 4 easy recipes that you can try', 'Black or white, these tiny, flat, oval-shaped seeds of the Sesamum indicum plant are not only one of the oldest known oilseeds but the healthiest as well. Being a native of India, sesame has an age-old connection with the country. It was during the Harappan period that its cultivation started in India and the country is one of the largest producers now. India is the third largest producer of sesame seeds. The rich nutty flavour and delicate crunch of sesame seeds make it quintessential to the Indian kitchen. Here are some of the most delicious dishes prepared using these tiny seeds. Take a look. (Images courtesy: Canva)\nThese tiny seeds were known to be quite important earlier. You would be surprised to know that sesame seeds were worth their weight in gold during the Middle Ages. Loaded with vital vitamins and minerals, these seeds are a great addition to a balanced diet. They are quite versatile and can be used to prepare any dish. Some of the common health benefits of using sesame seeds are: manages diabetes, balances low blood pressure, improves your heart, makes bone stronger, cures sleep disorders, boosts the health of your respiratory system, lowers inflammation in the body, assists in depression, and stress. There is so much to get from these small seeds.\nEnriched with antioxidants and fibre, this chutney is the easiest way to include sesame seeds in your diet. Often made with peanuts or lentils like urad and chana dal, this is a creamy chutney and can be prepared with either black or white sesame seeds. Some people also add coconut while making this chutney. Due to the number of anti-inflammatory properties, thus chutney can also help in improving your bone health and normalizing your blood pressure. All you need to do is take 1 cup of any sesame seeds and roast them in a pan. Once done, let them cool down. Once cooled, add them to a mixer jar and grind them with 2 dry red chillies, 4-5 garlic cloves, salt to taste, 1/3 tsp asafoetida along with 1-2 tsp', 'http://localhost/Projet_TDW/public/assets/images/new3.webp', '#', NULL),
 (3, '', NULL, NULL, NULL, 32),
 (4, 'What is Pink Gin and why people are going crazy about it?\r\n', 'Among the several food & drink trends of 2022, what caught our eye was people’s love for ‘pink gin’. This drink is there on every other person’s social media feed. But, what many fail to understand is what exactly is this gin, and why it is called so. Originally, this gin was made by mixing Angostura bitters with Plymouth gin in the mid-18th century, which gave it a beautiful pink colour. Earlier, it was a cocktail which was a huge hit in the UK by the end of the 18th century. However, If we talk about the ‘Pink Gin’ of the 21st century, it would be the gin flavoured and infused with a variety of fruits, herbs and spices that impart pink colour such as strawberries, raspberries, rhubarb, rose petals, and even hibiscus. Read more to know about pink gin… (Images courtesy: iStock)\r\nThe pink gin bottle might look like it\'s going to taste bubblegum-sweet, but don’t let the colour fool you! Pink gin is known to be fresh, fragrant, fruity and elegant, and sometimes their taste is complex. You can have this variety of gin as it is or serve it with tonic to make a traditional G&T cocktail.\r\nPink gin is made just like any other normal gin, through a distillation process. The flavours and any added colourings are added during this process to infuse the gin. Common pink gin ingredients like red berries (like strawberries and redcurrants), rose petals and other spices are added to steep the spirit. Once the process is complete, the pink gin is ready to enjoy.', 'http://localhost/Projet_TDW/public/assets/images/new6.webp', '#', NULL),
-(5, '', NULL, NULL, NULL, 37),
 (6, '', NULL, NULL, NULL, 42),
 (8, '6 herbs that are a must in the winter season', 'Among all the seasons, we get to experience in the country, winter is the most amazing one when we sit under the sun and enjoy the warmth in the afternoons. During this season, most of the people love to indulge in spicy & fried food as our metabolism is increased and the food we consume is digested easily. However, what kills all the fun is the introduction of colds & coughs with fever and stomach ache. While others feel breathing issues due to the much chilly weather. However, nature has a cure for everything and can also help you become fit and fine with the consumption of simple herbs. India is a land of Ayurveda, where herbs & shrubs have been given utmost importance for their medicinal properties. Here are some of the common herbs that we must consume in this winter season. (Images courtesy: Canva)\nThis thyme has strong tonic and antiseptic properties, and due to these properties, lemon thyme is an exceptional herb that can be used to treat chest and throat infections, which are quite common in the winter season. To get some instant results from this herb, take a cup of hot water and add a sprig of lemon thyme to it. Cover the cup with a lid and let the herb infuse in it to release its essential oils. Strain and drink this lemon thyme water/tea 2-3 times a day depending on the infection. If you want, you can also add a bit of honey to it.Also known as pot marigold, this plant is known for its powerful flowers which are known to have antiviral properties, which help in clearing infections, and detoxing and balancing the digestive system, liver and gall bladder. All you need to do is infuse 2 teaspoons of calendula petals in 750ml of just-boiled water for 10 minutes. Strain and drink up to five cups a day.', 'http://localhost/Projet_TDW/public/assets/images/new1.webp', '#', NULL),
 (9, 'You are not a tea lover, if you haven\'t tried making these 5 types of viral tea', 'You can’t be a tea lover if you haven’t immersed your heart and soul into that warm cup of freshly brewed tea and laughed off your worries over that hot cuppa. The love of tea is subjective so much so that even the slight addition of ingredients can seem like blasphemy. Of late, the internet has exposed us to a bevy of tea fusions and varieties that are good as well as gross. Let’s take a look at some of the most viral tea varieties that changed our minds, before changing our palate and love for tea.\r\nDum Chai is a classic Hyderabadi milk tea, which recently took the internet by storm with its aromatic flavour and rich texture. Made by pouring lukewarm water in a glass and covering it with a muslin cloth, sugar, ginger, tea leaves, cinnamon pieces, clove and star anise are kept over the cloth and slightly dunked in the glass of water. Then this glass is safely placed in a pressure cooker and cooked for 1 whistle to give a smokey effect. Then the muslin cloth is squeezed and the concoction is mixed with hot milk, stirred and enjoyed as Dum Tea.\r\nThe mere thought of sipping on the Roohafza chai will take your rooh(soul) out for a stroll, yes it is no less than a blasphemy for tea lovers. This Delhi tea maker makes pink tea wherein he pours Roohafza to regular chai to give it a rosy and sweet taste. This Delhi based tea stall left netizens with a bad taste and totally destroyed their love for the classic Pink Chai also known as Noon Chai.', 'http://localhost/Projet_TDW/public/assets/images/new2.webp', '#', NULL),
@@ -1075,7 +1074,9 @@ INSERT INTO `news` (`id_news`, `titre_news`, `description`, `liens_image`, `lien
 (12, 'Simple kitchen spices that can change your luck in the New Year', 'Since ages, we have been using spices to accentuate the taste of our meals, but what if we tell you that these little kitchen spices can twist your fate and bring good luck! This may sound unbelievable, but it is true that using spices in the right way can bring good luck, so welcome the New Year with these spices and have a successful, healthy and prosperous year ahead. Here are some common spices you can include in day-to-day life to bring good luck and fulfill wishes.\r\nAs per Hindu beliefs clove is considered pious and so it is used in several Hindu rituals and religious practices. It is believed that this spice can ward off the ill-effects of evil eye and boost a positive aura. Spiritual experts believe that keeping a few pods of cloves in your wallet or keeping them in the puja thali and offering to Goddess Durga can bring good luck. Also, if you are stepping out for an important deal, chew a clove or keep it in your bag to attract positive results.\r\nAccording to Hindu beliefs, Turmeric has the power to cleanse the aura and remove blockages, negativity and bring good luck. This is because Haldi is believed to be associated with the Jupiter planet, which is ruled by Lord Vishnu and Goddess Laxmi. Thus, it is believed that this spice has the power to remove evil eye. Apart from that, including haldi in day to day food or in bathing water or applying tika before leaving for important work can bring good luck.\r\nLooking for a job change? Then try this-keep a few cardamom pods under the pillow at night and give it to an outsider in the morning. Spiritual experts believe that doing this can bring good luck in career.This kitchen spice is often used in tea, deserts and curries, but do you know just by chewing this simple spice you can improve your life condition and attract positivity, money and peace in life.', 'http://localhost/Projet_TDW/public/assets/images/new5.webp', '#', NULL),
 (14, '', NULL, NULL, NULL, 24),
 (16, '', NULL, NULL, NULL, 11),
-(17, '', NULL, NULL, NULL, 47);
+(21, '', NULL, NULL, NULL, 38),
+(22, '', NULL, NULL, NULL, 8),
+(23, '', NULL, NULL, NULL, 39);
 
 -- --------------------------------------------------------
 
@@ -1086,7 +1087,6 @@ INSERT INTO `news` (`id_news`, `titre_news`, `description`, `liens_image`, `lien
 CREATE TABLE `noter` (
   `id_recette` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `date` date NOT NULL,
   `note` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1094,157 +1094,159 @@ CREATE TABLE `noter` (
 -- Déchargement des données de la table `noter`
 --
 
-INSERT INTO `noter` (`id_recette`, `id_user`, `date`, `note`) VALUES
-(1, 1, '2023-01-03', 3),
-(1, 2, '2023-01-03', 2),
-(1, 3, '2023-01-03', 3),
-(2, 1, '2023-01-03', 7),
-(2, 2, '2023-01-03', 7),
-(2, 3, '2023-01-03', 9),
-(3, 1, '2023-01-03', 2),
-(3, 2, '2023-01-03', 9),
-(3, 3, '2023-01-03', 9),
-(4, 1, '2023-01-03', 9),
-(4, 2, '2023-01-03', 0),
-(4, 3, '2023-01-03', 4),
-(5, 1, '2023-01-03', 10),
-(5, 2, '2023-01-03', 4),
-(5, 3, '2023-01-03', 2),
-(6, 1, '2023-01-03', 6),
-(6, 2, '2023-01-03', 3),
-(6, 3, '2023-01-03', 8),
-(7, 1, '2023-01-03', 2),
-(7, 2, '2023-01-03', 4),
-(7, 3, '2023-01-03', 2),
-(8, 1, '2023-01-03', 10),
-(8, 2, '2023-01-03', 4),
-(8, 3, '2023-01-03', 10),
-(9, 1, '2023-01-03', 5),
-(9, 2, '2023-01-03', 2),
-(9, 3, '2023-01-03', 6),
-(10, 1, '2023-01-03', 8),
-(10, 2, '2023-01-03', 7),
-(10, 3, '2023-01-03', 9),
-(11, 1, '2023-01-03', 9),
-(11, 2, '2023-01-03', 3),
-(11, 3, '2023-01-03', 3),
-(12, 1, '2023-01-03', 0),
-(12, 2, '2023-01-03', 2),
-(12, 3, '2023-01-03', 1),
-(13, 1, '2023-01-03', 6),
-(13, 2, '2023-01-03', 4),
-(13, 3, '2023-01-03', 10),
-(14, 1, '2023-01-03', 1),
-(14, 2, '2023-01-03', 3),
-(14, 3, '2023-01-03', 5),
-(15, 1, '2023-01-03', 9),
-(15, 2, '2023-01-03', 0),
-(15, 3, '2023-01-03', 7),
-(16, 1, '2023-01-03', 4),
-(16, 2, '2023-01-03', 6),
-(16, 3, '2023-01-03', 0),
-(17, 1, '2023-01-03', 6),
-(17, 2, '2023-01-03', 8),
-(17, 3, '2023-01-03', 2),
-(18, 1, '2023-01-03', 3),
-(18, 2, '2023-01-03', 10),
-(18, 3, '2023-01-03', 10),
-(19, 1, '2023-01-03', 0),
-(19, 2, '2023-01-03', 6),
-(19, 3, '2023-01-03', 1),
-(20, 1, '2023-01-03', 4),
-(20, 2, '2023-01-03', 2),
-(20, 3, '2023-01-03', 10),
-(21, 1, '2023-01-03', 1),
-(21, 2, '2023-01-03', 0),
-(21, 3, '2023-01-03', 1),
-(22, 1, '2023-01-03', 0),
-(22, 2, '2023-01-03', 7),
-(22, 3, '2023-01-03', 1),
-(23, 1, '2023-01-03', 2),
-(23, 2, '2023-01-03', 4),
-(23, 3, '2023-01-03', 9),
-(24, 1, '2023-01-03', 3),
-(24, 2, '2023-01-03', 2),
-(24, 3, '2023-01-03', 10),
-(25, 1, '2023-01-03', 7),
-(25, 2, '2023-01-03', 4),
-(25, 3, '2023-01-03', 10),
-(26, 1, '2023-01-03', 7),
-(26, 2, '2023-01-03', 2),
-(26, 3, '2023-01-03', 5),
-(27, 1, '2023-01-03', 1),
-(27, 2, '2023-01-03', 1),
-(27, 3, '2023-01-03', 6),
-(28, 1, '2023-01-03', 5),
-(28, 2, '2023-01-03', 7),
-(28, 3, '2023-01-03', 2),
-(29, 1, '2023-01-03', 10),
-(29, 2, '2023-01-03', 2),
-(29, 3, '2023-01-03', 1),
-(30, 1, '2023-01-03', 0),
-(30, 2, '2023-01-03', 8),
-(30, 3, '2023-01-03', 7),
-(31, 1, '2023-01-03', 9),
-(31, 2, '2023-01-03', 5),
-(31, 3, '2023-01-03', 2),
-(32, 1, '2023-01-03', 6),
-(32, 2, '2023-01-03', 2),
-(32, 3, '2023-01-03', 0),
-(33, 1, '2023-01-03', 1),
-(33, 2, '2023-01-03', 7),
-(33, 3, '2023-01-03', 10),
-(34, 1, '2023-01-03', 2),
-(34, 2, '2023-01-03', 5),
-(34, 3, '2023-01-03', 2),
-(35, 1, '2023-01-03', 0),
-(35, 2, '2023-01-03', 5),
-(35, 3, '2023-01-03', 8),
-(36, 1, '2023-01-03', 4),
-(36, 2, '2023-01-03', 8),
-(36, 3, '2023-01-03', 2),
-(37, 1, '2023-01-03', 0),
-(37, 2, '2023-01-03', 8),
-(37, 3, '2023-01-03', 4),
-(38, 1, '2023-01-03', 7),
-(38, 2, '2023-01-03', 4),
-(38, 3, '2023-01-03', 4),
-(39, 1, '2023-01-03', 6),
-(39, 2, '2023-01-03', 4),
-(39, 3, '2023-01-03', 2),
-(40, 1, '2023-01-03', 10),
-(40, 2, '2023-01-03', 10),
-(40, 3, '2023-01-03', 3),
-(41, 1, '2023-01-03', 0),
-(41, 2, '2023-01-03', 3),
-(41, 3, '2023-01-03', 10),
-(42, 1, '2023-01-03', 1),
-(42, 2, '2023-01-03', 4),
-(42, 3, '2023-01-03', 6),
-(43, 1, '2023-01-03', 3),
-(43, 2, '2023-01-03', 7),
-(43, 3, '2023-01-03', 7),
-(44, 1, '2023-01-03', 9),
-(44, 2, '2023-01-03', 8),
-(44, 3, '2023-01-03', 9),
-(45, 1, '2023-01-03', 0),
-(45, 2, '2023-01-03', 1),
-(45, 3, '2023-01-03', 9),
-(46, 1, '2023-01-03', 8),
-(46, 2, '2023-01-03', 1),
-(46, 3, '2023-01-03', 9),
-(47, 1, '2023-01-03', 3),
-(47, 2, '2023-01-03', 6),
-(47, 3, '2023-01-03', 6),
-(48, 1, '2023-01-03', 10),
-(48, 2, '2023-01-03', 7),
-(48, 3, '2023-01-03', 3),
-(49, 1, '2023-01-03', 8),
-(49, 2, '2023-01-03', 5),
-(49, 3, '2023-01-03', 10),
-(50, 1, '2023-01-03', 8),
-(50, 2, '2023-01-03', 2),
-(50, 3, '2023-01-03', 7);
+INSERT INTO `noter` (`id_recette`, `id_user`, `note`) VALUES
+(1, 1, 8),
+(1, 2, 2),
+(1, 3, 3),
+(2, 1, 8),
+(2, 2, 7),
+(2, 3, 9),
+(3, 1, 2),
+(3, 2, 9),
+(3, 3, 9),
+(4, 1, 9),
+(4, 2, 0),
+(4, 3, 4),
+(5, 1, 10),
+(5, 2, 4),
+(5, 3, 2),
+(6, 1, 6),
+(6, 2, 3),
+(6, 3, 8),
+(7, 1, 2),
+(7, 2, 4),
+(7, 3, 2),
+(8, 1, 10),
+(8, 2, 4),
+(8, 3, 10),
+(9, 1, 5),
+(9, 2, 2),
+(9, 3, 6),
+(10, 1, 8),
+(10, 2, 7),
+(10, 3, 9),
+(11, 1, 9),
+(11, 2, 3),
+(11, 3, 3),
+(12, 1, 0),
+(12, 2, 2),
+(12, 3, 1),
+(13, 1, 6),
+(13, 2, 4),
+(13, 3, 10),
+(14, 1, 1),
+(14, 2, 3),
+(14, 3, 5),
+(15, 1, 9),
+(15, 2, 0),
+(15, 3, 7),
+(16, 1, 4),
+(16, 2, 6),
+(16, 3, 0),
+(17, 1, 6),
+(17, 2, 8),
+(17, 3, 2),
+(18, 1, 3),
+(18, 2, 10),
+(18, 3, 10),
+(19, 1, 0),
+(19, 2, 6),
+(19, 3, 1),
+(20, 1, 4),
+(20, 2, 2),
+(20, 3, 10),
+(21, 1, 1),
+(21, 2, 0),
+(21, 3, 1),
+(22, 1, 0),
+(22, 2, 7),
+(22, 3, 1),
+(23, 1, 2),
+(23, 2, 4),
+(23, 3, 9),
+(24, 1, 3),
+(24, 2, 2),
+(24, 3, 10),
+(25, 1, 7),
+(25, 2, 4),
+(25, 3, 10),
+(26, 1, 7),
+(26, 2, 2),
+(26, 3, 5),
+(27, 1, 1),
+(27, 2, 1),
+(27, 3, 6),
+(28, 1, 5),
+(28, 2, 7),
+(28, 3, 2),
+(29, 1, 10),
+(29, 2, 2),
+(29, 3, 1),
+(30, 1, 0),
+(30, 2, 8),
+(30, 3, 7),
+(31, 1, 9),
+(31, 2, 5),
+(31, 3, 2),
+(32, 1, 6),
+(32, 2, 2),
+(32, 3, 0),
+(33, 1, 1),
+(33, 2, 7),
+(33, 3, 10),
+(34, 1, 2),
+(34, 2, 5),
+(34, 3, 2),
+(35, 1, 0),
+(35, 2, 5),
+(35, 3, 8),
+(36, 1, 4),
+(36, 2, 8),
+(36, 3, 2),
+(37, 1, 0),
+(37, 2, 8),
+(37, 3, 4),
+(38, 1, 7),
+(38, 2, 4),
+(38, 3, 4),
+(39, 1, 6),
+(39, 2, 4),
+(39, 3, 2),
+(40, 1, 10),
+(40, 2, 10),
+(40, 3, 3),
+(41, 1, 0),
+(41, 2, 3),
+(41, 3, 10),
+(42, 1, 1),
+(42, 2, 4),
+(42, 3, 6),
+(43, 1, 3),
+(43, 2, 7),
+(43, 3, 7),
+(44, 1, 9),
+(44, 2, 8),
+(44, 3, 9),
+(45, 1, 0),
+(45, 2, 1),
+(45, 3, 9),
+(46, 1, 8),
+(46, 2, 1),
+(46, 3, 9),
+(47, 1, 3),
+(47, 2, 6),
+(47, 3, 6),
+(48, 1, 10),
+(48, 2, 7),
+(48, 3, 3),
+(49, 1, 8),
+(49, 2, 5),
+(49, 3, 10),
+(50, 1, 8),
+(50, 2, 2),
+(50, 3, 7),
+(1, 6, 10),
+(49, 6, 10);
 
 -- --------------------------------------------------------
 
@@ -1275,6 +1277,16 @@ CREATE TABLE `prefere` (
   `id_recette` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `prefere`
+--
+
+INSERT INTO `prefere` (`id_recette`, `id_user`) VALUES
+(2, 1),
+(23, 6),
+(24, 2),
+(42, 2);
 
 -- --------------------------------------------------------
 
@@ -1973,7 +1985,6 @@ CREATE TABLE `utilisateur` (
   `nom_user` varchar(30) DEFAULT NULL,
   `prenom_user` varchar(30) DEFAULT NULL,
   `email_user` varchar(30) DEFAULT NULL,
-  `age_user` int(11) DEFAULT NULL,
   `date_de_naissance` date DEFAULT NULL,
   `sexe` char(1) DEFAULT NULL,
   `password` varchar(120) DEFAULT NULL,
@@ -1985,10 +1996,11 @@ CREATE TABLE `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_user`, `nom_user`, `prenom_user`, `email_user`, `age_user`, `date_de_naissance`, `sexe`, `password`, `valide`, `token`) VALUES
-(1, 'sofian', 'chelihi', 'js_chelihi@esi.dz', 21, '2001-11-05', 'm', '123', 1, ' '),
-(2, 'djamel', 'chaalal', 'chaalal@esi.dz', 36, '1987-08-23', 'm', '123', 1, ' '),
-(3, 'chelihi', 'rayan', 'rayan@esi.dz', 21, '2001-11-05', 'm', '123', 1, ' ');
+INSERT INTO `utilisateur` (`id_user`, `nom_user`, `prenom_user`, `email_user`, `date_de_naissance`, `sexe`, `password`, `valide`, `token`) VALUES
+(1, 'sofian', 'chelihi', 'js_chelihi@esi.dz', '2001-11-05', 'm', '123', 1, '0ae37e4994508b19c093447d40000d06'),
+(2, 'djamel', 'chaalal', 'chaalal@esi.dz', '1987-08-23', 'm', '123', 1, '7e156585e375692d1ecc3927e4a91e45'),
+(3, 'chelihi', 'rayan', 'rayan@esi.dz', '2001-11-05', 'm', '123', 1, ' '),
+(6, 'sofian', 'chelihi', 'sofianmilanou3@gmail.com', '2001-11-05', 'm', '123', 1, '49cd63502e352fe095496e4b396782fe');
 
 --
 -- Index pour les tables déchargées
@@ -2064,6 +2076,13 @@ ALTER TABLE `ingr_info_nutr`
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id_news`),
   ADD KEY `id_recette` (`id_recette`);
+
+--
+-- Index pour la table `noter`
+--
+ALTER TABLE `noter`
+  ADD KEY `id_recette` (`id_recette`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Index pour la table `parametre_site`
@@ -2156,7 +2175,7 @@ ALTER TABLE `ingredient`
 -- AUTO_INCREMENT pour la table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_news` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `recette`
@@ -2174,7 +2193,7 @@ ALTER TABLE `saison`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées
@@ -2205,6 +2224,13 @@ ALTER TABLE `ingr_info_nutr`
 --
 ALTER TABLE `news`
   ADD CONSTRAINT `news_ibfk_1` FOREIGN KEY (`id_recette`) REFERENCES `recette` (`id_recette`);
+
+--
+-- Contraintes pour la table `noter`
+--
+ALTER TABLE `noter`
+  ADD CONSTRAINT `noter_ibfk_1` FOREIGN KEY (`id_recette`) REFERENCES `recette` (`id_recette`),
+  ADD CONSTRAINT `noter_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_user`);
 
 --
 -- Contraintes pour la table `prefere`
