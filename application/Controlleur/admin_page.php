@@ -58,7 +58,7 @@ class admin_page extends Controlleurs{
         $this->getView('admin_page_view');
         $model=new user_model();
         $view= new admin_page_view();
-        $users=$model->get_users();
+        $users=$model->get_users_filtre_tri();
         $view->afficher_entete_haut("gestion_users.css","Gestion des utilisateurs");
         $view->afficher_menu();
         $view->afficher_gestion_users($users);

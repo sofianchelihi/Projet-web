@@ -80,38 +80,41 @@ class admin_page_view extends view_admin{
     }
 
     public function afficher_gestion_users($users){?>
-        <label>Filtre</label>
-        <div class="filtres" id="filtres">
-            <select class="form-select saison_filre" aria-label="Default select example">
-                <option selected>Saison</option>
-                <option value="hiver">Hiver</option>
-                <option value="printemps">Printemps</option>
-                <option value="été">Eté</option>
-                <option value="automne">Automne</option>
-            </select>
-            <input type="number" class="form-control temp_prepa_filtr" placeholder=" Temp de préparation" aria-describedby="basic-addon1">
-            <input type="number" class="form-control temp_cuis_filtr" placeholder=" Temp de cuisson" aria-describedby="basic-addon1">
-            <input type="number" class="form-control temp_total_filtr" placeholder=" Temp total" aria-describedby="basic-addon1">
-            <input type="number" class="form-control notation_filtr" placeholder=" Notation" aria-describedby="basic-addon1" min="1" max="10">
-            <input type="number" class="form-control calories_filtr" placeholder=" Nombre de calories" aria-describedby="basic-addon1">
-        </div>
+        <form class="filtre_tri" action="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users" method="post">
+            <label class="lt">Filtrer par :</label>
+            <div class="filtres">
+                <select class="form-select" name="sexe">
+                    <option selected value="">Pas de choix</option>
+                    <option value="m">Male</option>
+                    <option value="f">Femelle</option>
+                </select>
+                <input type="text" class="form-control" placeholder=" Nom" name="nom">
+                <input type="text" class="form-control" placeholder=" Prenom" name="prenom">
+                <input type="date" class="form-control" placeholder=" Date de naissance" name="date_de_naissance">
+                <select class="form-select" name="valide">
+                    <option selected value="">Pas de choix</option>
+                    <option value="true">Valide</option>
+                    <option value="false">Non valide</option>
+                </select>
+            </div>
+            <label class="lt">Trier par :</label>
+            <div class="tries">
+                <select class="form-select" name="tri_par">
+                    <option selected value="">Pas de choix</option>
+                    <option value="nom_user">Nom</option>
+                    <option value="prenom_user">Prenom</option>
+                    <option value="date_de_naissance">Date de naissance</option>
+                    <option value="sexe">Sexe</option>
+                    <option value="valide">Validité</option>
+                </select>
+                <select class="form-select" name="tri_ordre">
+                    <option selected value="ASC">Croissant</option>
+                    <option value="DESC">Decroissant</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Filtrer et trier</button>
+        </form>
 
-        <label>Tri</label>
-        <div class="tries" id="tries">
-            <select class="form-select type_tri" aria-label="Default select example">
-                <option selected>Trier par </option>
-                <option value="temp_prepa">Temp de préparation</option>
-                <option value="temp_cuis">Temp de cuisson</option>
-                <option value="temp_total">Temp total</option>
-                <option value="calories">Nombre de calories</option>
-                <option value="notation">Notation</option>
-            </select>
-            <select class="form-select ordre_tri" aria-label="Default select example">
-                <option selected>Par ordre</option>
-                <option value="croissant">Croissant</option>
-                <option value="decroissant">Decroissant</option>
-            </select>
-        </div>
         <ol class="list-group list-group-numbered px-4 my-5"><?php 
             foreach($users as $user){?>
                 <li class="list-group-item d-flex justify-content-between align-items-start">

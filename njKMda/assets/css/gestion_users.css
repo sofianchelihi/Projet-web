@@ -64,43 +64,53 @@ body::-webkit-scrollbar-thumb {
 }
 
 .filtres{
-    width: 95%;
+    width: 90%;
     margin-left: 2.5%;
     height: auto;
     margin-top: 50px;
     margin-bottom: 40px;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .filtres select,input{
-    width: 12%!important;
+    width: 15%!important;
+    margin-left: 2%;
 }
-
-
-#filtr{
-    width: 12%!important;
-}
-
 
 .tries{
-    width: 60%;
-    margin-left: 37.5%;
+    width: 50%;
+    margin-left: 2.5%;
     height: auto;
     margin-top: 20px;
     margin-bottom: 40px;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
 
 .tries select{
-    width: 38%!important;
+    width: 46%!important;
+    margin-left: 4%;
 }
 
+.lt{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 2.5%;
+}
 
-.tries button{
-    width: 22%!important;
+.filtre_tri{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.filtre_tri button{
+    margin: 30px;
+    width: 15%!important;
+    margin-left: 56%;
 }
 

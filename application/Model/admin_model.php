@@ -23,9 +23,7 @@ class admin_model extends Model{
 
     public function supprimer_user($id_user){
         $this->requete1("DELETE FROM noter WHERE id_user=?",[$id_user]);
-        $this->requete1("",[$id_user]);
-        $this->requete1("",[$id_user]);
-        $this->requete1("",[$id_user]);
-        $this->requete1("",[$id_user]);
+        $this->requete1("DELETE FROM prefere WHERE id_user=?",[$id_user]);
+        $this->requete1("DELETE FROM utilisateur WHERE id_user=?",[$id_user]);
     }
 }

@@ -63,15 +63,26 @@ class user_model extends Model{
         return $this->requete1('SELECT recette.titre_recette,noter.note FROM noter INNER JOIN recette ON noter.id_recette=recette.id_recette AND noter.id_user=?',[$id_user]);
     }
 
-    public function get_users(){
-        $nom = $_POST['tri'] ?? 'nom';
+    public function get_users_filtre_tri(){   
+        if(count($_POST)>0){
+            $requete = "SELECT * FROM utilisateur ";
+            if($_POST["sexe"]!='' || $_POST["nom"]!='' || $_POST["prenom"]!='' || $_POST["date_de_naissance"]!='' || $_POST["valide"]!='') $requete.="WHERE ";
+            
+            if($_POST["sexe"]!='') $requete.=" sexe='".$_POST["sexe"]."' AND ";
+            if($_POST["nom"]!='') $requete.=" nom_user LIKE '".$_POST["nom"]."%' AND ";
+            if($_POST["prenom"]!='') $requete.=" prenom_user LIKE '".$_POST["prenom"]."%' AND ";
+            if($_POST["date_de_naissance"]!='') $requete.=" date_de_naissance='".$_POST["date_de_naissance"]."' AND ";
+            if($_POST["valide"]!='') $requete.=" valide=".$_POST["valide"]." AND ";
 
 
+            if($_POST["sexe"]!='' || $_POST["nom"]!='' || $_POST["prenom"]!='' || $_POST["date_de_naissance"]!='' || $_POST["valide"]!='') $requete=substr($requete, 0,strlen($requete)-4);
 
 
+            if($_POST["tri_par"]!='') $requete.=" ORDER BY ".$_POST["tri_par"]." ".$_POST["tri_ordre"];
 
+            return $this->requete2($requete);
 
-
+        }
         return $this->requete2("SELECT * FROM utilisateur");
     }
 }
