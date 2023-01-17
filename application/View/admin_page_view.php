@@ -9,7 +9,7 @@ class admin_page_view extends view_admin{
             <a href="#" style="background-image: url(<?php echo ROOTIMG.'recettes.jpg';?>);">
                 Recettes
             </a>
-            <a href="#" style="background-image: url(<?php echo ROOTIMG.'users.png';?>);">
+            <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users" style="background-image: url(<?php echo ROOTIMG.'users.png';?>);">
                 Utilisateurs
             </a>
             <a href="#" style="background-image: url(<?php echo ROOTIMG.'nutrition.webp';?>);">
@@ -77,5 +77,62 @@ class admin_page_view extends view_admin{
                 }
             ?>
         </ol><?php
+    }
+
+    public function afficher_gestion_users($users){?>
+        <label>Filtre</label>
+        <div class="filtres" id="filtres">
+            <select class="form-select saison_filre" aria-label="Default select example">
+                <option selected>Saison</option>
+                <option value="hiver">Hiver</option>
+                <option value="printemps">Printemps</option>
+                <option value="été">Eté</option>
+                <option value="automne">Automne</option>
+            </select>
+            <input type="number" class="form-control temp_prepa_filtr" placeholder=" Temp de préparation" aria-describedby="basic-addon1">
+            <input type="number" class="form-control temp_cuis_filtr" placeholder=" Temp de cuisson" aria-describedby="basic-addon1">
+            <input type="number" class="form-control temp_total_filtr" placeholder=" Temp total" aria-describedby="basic-addon1">
+            <input type="number" class="form-control notation_filtr" placeholder=" Notation" aria-describedby="basic-addon1" min="1" max="10">
+            <input type="number" class="form-control calories_filtr" placeholder=" Nombre de calories" aria-describedby="basic-addon1">
+        </div>
+
+        <label>Tri</label>
+        <div class="tries" id="tries">
+            <select class="form-select type_tri" aria-label="Default select example">
+                <option selected>Trier par </option>
+                <option value="temp_prepa">Temp de préparation</option>
+                <option value="temp_cuis">Temp de cuisson</option>
+                <option value="temp_total">Temp total</option>
+                <option value="calories">Nombre de calories</option>
+                <option value="notation">Notation</option>
+            </select>
+            <select class="form-select ordre_tri" aria-label="Default select example">
+                <option selected>Par ordre</option>
+                <option value="croissant">Croissant</option>
+                <option value="decroissant">Decroissant</option>
+            </select>
+        </div>
+        <ol class="list-group list-group-numbered px-4 my-5"><?php 
+            foreach($users as $user){?>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold"><?php echo $user["nom_user"]." ".$user["prenom_user"]?></div>
+                        <?php echo $user["email_user"] ?>
+                    </div>
+                    <span>
+                        <a target="_blank" href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_profile_user&id_user=<?php echo $user["id_user"]?>&token=<?php echo $user["token"]?>" class="btn btn-primary me-2 mt-1"> Voir profile </a><?php
+                            if($user["valide"]){?>
+                                <a href="http://localhost/Projet_TDW/njKMda/admin_page/invalider_user&id_user=<?php echo $user["id_user"]?>" class="btn btn-danger me-2 mt-1"> Invalider </a><?php
+                            }else{?>
+                                <a href="http://localhost/Projet_TDW/njKMda/admin_page/valider_user&id_user=<?php echo $user["id_user"]?>" class="btn btn-success me-2 mt-1"> Valider </a><?php
+                            }
+                        ?>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/supprimer_user&id_user=<?php echo $user["id_user"]?>" class="btn btn-warning me-2 mt-1 sup"> Supprimer </a>
+                    </span>
+                </li>
+              <?php 
+            }
+        ?></ol>
+      <?php
     }
 }

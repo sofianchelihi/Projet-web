@@ -51,4 +51,45 @@ class admin_page extends Controlleurs{
         }
         header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news");
     }
+
+    public function afficher_page_gestion_users(){
+        $this->check_admin_login();
+        $this->getModel("user_model");
+        $this->getView('admin_page_view');
+        $model=new user_model();
+        $view= new admin_page_view();
+        $users=$model->get_users();
+        $view->afficher_entete_haut("gestion_users.css","Gestion des utilisateurs");
+        $view->afficher_menu();
+        $view->afficher_gestion_users($users);
+        $view->afficher_entete_bas('gestion_users.js');
+    }
+
+    public function afficher_profile_user($id_user,$token){
+        $this->check_admin_login();
+        $_SESSION['id']=$id_user;
+        $_SESSION['token']=$token;
+        header("Location: http://localhost/Projet_TDW/public/user/afficher_profile");
+    }
+
+    public function valider_user($id_user){
+        $this->check_admin_login();
+        $model= new admin_model();
+        $model->valider_user($id_user);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users");
+    }
+
+    public function invalider_user($id_user){
+        $this->check_admin_login();
+        $model= new admin_model();
+        $model->invalider_user($id_user);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users");
+    }
+
+    public function supprimer_user($id_user){
+        $this->check_admin_login();
+        $model= new admin_model();
+        $model->supprimer_user($id_user);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users");
+    }
 }

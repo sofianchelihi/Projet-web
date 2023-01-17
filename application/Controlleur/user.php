@@ -15,7 +15,9 @@ class user extends Controlleurs{
         $model = new user_model();
         if(isset($_SESSION["id"]) && isset($_SESSION["token"])){
             $model->set_token($_SESSION["id"],md5($_SESSION["id"].md5(date("Y-m-d h:i:s"))));
-            session_destroy();
+           // session_destroy();
+           unset($_SESSION["id"]);
+           unset($_SESSION["token"]);
         }
         header("Location: http://localhost/Projet_TDW/public/");
     }
@@ -26,11 +28,15 @@ class user extends Controlleurs{
         if(isset($_POST["email"]) && isset($_POST["password"])){
             if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
                 $user = $model->get_user();
-                if(count($user)>0){       
-                    $_SESSION["token"]=md5($user[0]["password"].md5(date("Y-m-d h:i:s")));
-                    $_SESSION["id"]=$user[0]["id_user"];
-                    $model->set_token($_SESSION["id"],$_SESSION["token"]);
-                    header("Location: http://localhost/Projet_TDW/public/");
+                if(count($user)>0){
+                    if($user[0]["valide"]){  
+                        $_SESSION["token"]=md5($user[0]["password"].md5(date("Y-m-d h:i:s")));
+                        $_SESSION["id"]=$user[0]["id_user"];
+                        $model->set_token($_SESSION["id"],$_SESSION["token"]);
+                        header("Location: http://localhost/Projet_TDW/public/");
+                    }else{
+                        header("Location: http://localhost/Projet_TDW/public/user/afficher_login_page&message=Votre compte n'est pas encore validé");
+                    }
                 }else{
                     header("Location: http://localhost/Projet_TDW/public/user/afficher_login_page&message=Information incorrects");
                 }

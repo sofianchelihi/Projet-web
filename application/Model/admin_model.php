@@ -12,4 +12,20 @@ class admin_model extends Model{
         if(count($compte)==0) return false;
         return true;
     }
+
+    public function valider_user($id_user){
+        return $this->requete1("UPDATE utilisateur SET valide=true WHERE id_user=?",[$id_user]);
+    }
+
+    public function invalider_user($id_user){
+        return $this->requete1("UPDATE utilisateur SET valide=false WHERE id_user=?",[$id_user]);
+    }
+
+    public function supprimer_user($id_user){
+        $this->requete1("DELETE FROM noter WHERE id_user=?",[$id_user]);
+        $this->requete1("",[$id_user]);
+        $this->requete1("",[$id_user]);
+        $this->requete1("",[$id_user]);
+        $this->requete1("",[$id_user]);
+    }
 }

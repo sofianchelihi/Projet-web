@@ -42,7 +42,7 @@ class view_admin{
                         <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news">Gestion des News</a>
                     </li>
                     <li class="col text-center">
-                        <a href="#">La gestion des utilisateurs</a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users">La gestion des utilisateurs</a>
                     </li>
                     <li class="col text-center">
                         <a href="#">Gestion de la nutrition</a>

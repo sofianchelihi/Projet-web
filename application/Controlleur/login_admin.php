@@ -15,7 +15,9 @@ class login_admin extends Controlleurs{
         $model = new admin_model();
         if(isset($_SESSION["id_admin"]) && isset($_SESSION["token_admin"])){
             $model->set_token($_SESSION["id_admin"],md5($_SESSION["id_admin"].md5(date("Y-m-d h:i:s"))));
-            session_destroy();
+            //session_destroy();
+            unset($_SESSION["id_admin"]);
+            unset($_SESSION["token_admin"]);
         }
         header("Location: http://localhost/Projet_TDW/njKMda/");
     }
