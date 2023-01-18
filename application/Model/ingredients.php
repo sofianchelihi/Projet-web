@@ -12,7 +12,7 @@ class ingredients extends Model{
 
 
     public function get_all_ingredients(){
-        return $this->requete2("SELECT nom_ingr FROM ingredient");
+        return $this->requete2("SELECT * FROM ingredient");
     }
 
 
@@ -76,5 +76,23 @@ class ingredients extends Model{
         $ingredients = $this->requete2("SELECT ingredient.*,info_nutr.* FROM ingredient INNER JOIN ingr_info_nutr ON ingredient.id_ingr = ingr_info_nutr.id_ingr INNER JOIN info_nutr ON ingr_info_nutr.id_info = info_nutr.id_info");
         $saisons = $this->requete2("SELECT * FROM ingredient_saison INNER JOIN saison ON ingredient_saison.id_saison = saison.id_saison ORDER BY ingredient_saison.id_ingr");
         return AddIngredientsInfo($ingredients,$saisons);
+    }
+
+    public function get_ingredient($id_ingr){
+        $ingredients = $this->requete1("SELECT ingredient.*,info_nutr.* FROM ingredient INNER JOIN ingr_info_nutr ON ingredient.id_ingr = ingr_info_nutr.id_ingr INNER JOIN info_nutr ON ingr_info_nutr.id_info = info_nutr.id_info WHERE ingredient.id_ingr=?",[$id_ingr]);
+        $saisons = $this->requete2("SELECT * FROM ingredient_saison INNER JOIN saison ON ingredient_saison.id_saison = saison.id_saison ORDER BY ingredient_saison.id_ingr");
+        return AddIngredientsInfo($ingredients,$saisons);
+    }
+
+
+    public function sup_ingr($id_ingr){
+        $this->requete1("DELETE FROM ingredient_saison WHERE id_ingr=?",[$id_ingr]);
+        $this->requete1("DELETE FROM ingr_info_nutr WHERE id_ingr=?",[$id_ingr]);
+        $this->requete1("DELETE FROM recette_ingredient WHERE id_ingr=?",[$id_ingr]);
+        $this->requete1("DELETE FROM ingredient WHERE id_ingr=?",[$id_ingr]);
+    }
+
+    public function modifier_ingr($id_ingr){
+        print_r($_POST);
     }
 }

@@ -12,7 +12,7 @@ class admin_page_view extends view_admin{
             <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users" style="background-image: url(<?php echo ROOTIMG.'users.png';?>);">
                 Utilisateurs
             </a>
-            <a href="#" style="background-image: url(<?php echo ROOTIMG.'nutrition.webp';?>);">
+            <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients" style="background-image: url(<?php echo ROOTIMG.'nutrition.webp';?>);">
                 Nutrition
             </a>
             <a href="#" style="background-image: url(<?php echo ROOTIMG.'setings.webp';?>);">
@@ -136,6 +136,145 @@ class admin_page_view extends view_admin{
               <?php 
             }
         ?></ol>
+      <?php
+    }
+
+    public function afficher_gestion_ingredients($ingredients){?>
+        <a href="http://localhost/Projet_TDW/njKMda/admin_page/page_ajouter_ingr" class="btn btn-primary ajouter"> Ajouter ingredients</a>
+        <form class="filtres">
+            <select class="form-select healthy_filtre">
+                <option selected>Type</option>
+                <option value="Healthy">Healthy</option>
+                <option value="Not healthy">Not healthy</option>
+            </select>
+            <input type="number" class="form-control calorie_filtre" placeholder=" Nombre de calories">
+            <input type="text" class="form-control nom_filtre" placeholder=" Nom ingredient">
+            <button type="submit" class="btn btn-primary filre"> Filtrer </button>
+        </form>
+
+
+        <form class="tries">
+            <select class="form-select tri">
+                <option selected>Trier par </option>
+                <option value="calorie">Nombre de calories</option>
+            </select>
+            <select class="form-select ordre">
+                <option selected>Par ordre</option>
+                <option value="croissant">Croissant</option>
+                <option value="decroissant">Decroissant</option>
+            </select>
+            <button type="submit" class="btn btn-primary tri"> Trier </button>
+        </form>
+
+        <ol class="list-group list-group-numbered px-4 my-5"><?php 
+            foreach($ingredients as $ingredient){?>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold nom_ingr"><?php 
+                            if($ingredient["healthy"]){
+                                echo $ingredient["nom_ingr"]."<p class='healthy health'>Healthy </p>";
+                            }else{
+                                echo $ingredient["nom_ingr"]."<p class='not_healthy health'>Not healthy </p>";
+                            }
+                        ?></div>
+                        <?php echo "<p class='calorie'>".$ingredient["calories"]."  <b>cal. pour cent g</b></p>" ?>
+                    </div>
+                    <span>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/page_modifier_ingr&id_ingr=<?php echo $ingredient["id_ingr"]?>" class="btn btn-primary me-2 mt-1"> Modifier </a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/supprimer_ingr&id_ingr=<?php echo $ingredient["id_ingr"] ?>" class="btn btn-warning me-2 mt-1 sup"> Supprimer </a>
+                    </span>
+                </li>
+              <?php 
+            }
+        ?></ol><?php
+    }
+
+
+    public function modifier_ingredient($info_ingr){
+        $info_ingr=$info_ingr[0];?>
+        <form class="row mx-4 my-5" action="http://localhost/Projet_TDW/njKMda/admin_page/modifier_ingr&id_ingr=<?php echo $info_ingr["id_ingr"] ?>" method="post">
+            <div class="col-4 my-4">
+                <label for="nom_ingr">Nom ingredient</label>
+                <input class="form-control" type="text" name="nom_ingr" id="nom_ingr" value="<?php echo $info_ingr["nom_ingr"]?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="calories">Nombre de calories</label>
+                <input class="form-control" type="number" name="calories" id="calories" value="<?php echo $info_ingr["calories"]?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="healthy">Healthy</label>
+                <select class="form-select" id="healthy" name="healthy">
+                    <option <?php if($info_ingr["healthy"]) {?> selected <?php }?> value="true">Healthy</option>
+                    <option <?php if(!$info_ingr["healthy"]) {?> selected <?php }?> value="false">Not healthy</option>
+                </select>
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="glucide">Glucide</label>
+                <input class="form-control" type="number" name="glucide" id="glucide" value="<?php echo ceil( $info_ingr["glucide"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="lipide">Lipide</label>
+                <input class="form-control" type="number" name="lipide" id="lipide" value="<?php echo ceil( $info_ingr["lipide"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="minéraux">Minéraux</label>
+                <input class="form-control" type="number" name="minéraux" id="minéraux" value="<?php echo ceil( $info_ingr["minéraux"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminA">Vitamin A</label>
+                <input class="form-control" type="number" name="vitaminA" id="vitaminA" value="<?php echo ceil( $info_ingr["vitaminA"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminB">Vitamin B</label>
+                <input class="form-control" type="number" name="vitaminB" id="vitaminB" value="<?php echo ceil( $info_ingr["vitaminB"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminC">Vitamin C</label>
+                <input class="form-control" type="number" name="vitaminC" id="vitaminC" value="<?php echo ceil( $info_ingr["vitaminC"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminD">Vitamin D</label>
+                <input class="form-control" type="number" name="vitaminD" id="vitaminD" value="<?php echo ceil( $info_ingr["vitaminD"])?>">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminE">Vitamin E</label>
+                <input class="form-control" type="number" name="vitaminE" id="vitaminE" value="<?php echo ceil( $info_ingr["vitaminE"])?>">
+            </div>
+
+            <p style="color: black;font-size:20px;font-weight:500;padding-left:25px;" class="my-5">les saisons</p>
+
+            <div class="col-3 my-3">
+                <label for="hiver">Hiver</label>
+                <input <?php if( in_array("hiver",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="hiver" name="hiver" value="1" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="printemps">Printemps</label>
+                <input <?php if( in_array("printemps",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="printemps" name="printemps" value="2" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="été">Eté</label>
+                <input <?php if( in_array("été",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="été" name="été" value="3" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="automne">Automne</label>
+                <input <?php if( in_array("automn",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="automne" name="automne" value="4">
+            </div>
+            
+            <button class="btn btn-primary my-5 w-25" style="margin-left: 60%;"> Envoyer </button>  
+        </form>
       <?php
     }
 }

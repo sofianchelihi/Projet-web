@@ -45,7 +45,7 @@ class view_admin{
                         <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users">La gestion des utilisateurs</a>
                     </li>
                     <li class="col text-center">
-                        <a href="#">Gestion de la nutrition</a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients">Gestion de la nutrition</a>
                     </li>
                     <li class="col text-center">
                         <a href="#">Paramètres</a>

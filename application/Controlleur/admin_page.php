@@ -92,4 +92,49 @@ class admin_page extends Controlleurs{
         $model->supprimer_user($id_user);
         header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users");
     }
+
+    public function afficher_gestion_ingredients(){
+        $this->getView('admin_page_view');
+        $this->getModel("ingredients");
+        $this->check_admin_login();
+        $view=new admin_page_view();
+        $model = new ingredients();
+        $ingredients= $model->get_all_ingredients();
+        $view->afficher_entete_haut("gestion_ingredients.css","Gestion de la nutrition");
+        $view->afficher_menu();
+        $view->afficher_gestion_ingredients($ingredients);
+        $view->afficher_entete_bas('gestion_ingredients.js');
+    } 
+
+    public function supprimer_ingr($id_ingr){
+        $this->check_admin_login();
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        $model->sup_ingr($id_ingr);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients");
+    }
+
+    public function page_modifier_ingr($id_ingr){
+        $this->check_admin_login();
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        $ingredient = $model->get_ingredient($id_ingr);
+        $this->getView('admin_page_view');
+        $view=new admin_page_view();
+        $view->afficher_entete_haut("modifier_ingr.css",$ingredient[0]['nom_ingr']);
+        $view->afficher_menu();
+        $view->modifier_ingredient($ingredient);
+        $view->afficher_entete_bas('modifier_ingr.js');
+    }
+
+    public function modifier_ingr($id_ingr){
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        $model->modifier_ingr($id_ingr);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients");
+    }
+
+    public function page_ajouter_ingr(){
+
+    }
 }

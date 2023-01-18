@@ -1,0 +1,115 @@
+body::-webkit-scrollbar{
+    width: 8px; 
+    height: 10px;
+    border-radius: 20px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: rgba(128, 128, 128, 0.425); /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: orange; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid rgba(128, 128, 128, 0.425); /* creates padding around scroll thumb */
+}
+
+.menu{
+    width: 100%!important;
+    margin: 0px!important;
+    height: 80px;
+    color: white;
+    background-color: black;
+    display: flex;
+}
+
+.menu div:nth-child(1){
+    width: 15%;
+    height: 80px;
+}
+
+.menu div:nth-child(1) object{
+    width: 80px;
+    height: 80px;
+    margin-left: 40px;
+}
+
+
+.menu div:nth-child(2){
+    width: 85%;
+    height: 80px;
+}
+
+.menu div:nth-child(2) ul{
+   display: flex;
+   justify-content: space-around;
+   list-style: none;
+   height: 80px;
+}
+
+.menu div:nth-child(2) ul li{
+    height: 80px;
+    align-items: center;
+    padding-top: 24px;
+ }
+
+.menu div:nth-child(2) ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.menu div:nth-child(2) ul li:nth-child(4) a{
+    color: orange!important;
+}
+
+.ajouter{
+    width: 20%;
+    margin: 30px;
+    margin-left: 70%;
+}
+
+.calorie{
+    color: gray;
+}
+
+.not_healthy{
+    color: rgb(243, 88, 88);
+}
+
+.healthy{
+    color: rgb(36, 214, 36);
+}
+
+.nom_ingr{
+    display: flex;
+}
+
+.health{
+    margin-left: 40px;
+    font-size: 14px;
+}
+
+.tries{
+    display: flex;
+    width: 50%;
+    margin-left: 48%
+}
+.tries select,button{
+    width: 31%;
+    margin-right: 2%;
+}
+
+.filtres{
+    display: flex;
+    width: 70%;
+    margin-left: 28%;
+    margin-bottom: 30px;
+}
+
+.filtres select,input,button{
+    width: 23%!important;
+    margin-right: 2%;
+}
+
+
