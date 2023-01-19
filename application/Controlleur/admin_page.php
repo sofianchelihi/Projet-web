@@ -160,15 +160,93 @@ class admin_page extends Controlleurs{
     }
 
     public function afficher_parametres(){
+        $this->check_admin_login();
+        $this->getView('admin_page_view');
+        $this->getModel("parametres");
+        $view=new admin_page_view();
+        $model = new parametres();
+        $parametres= $model->getAll_parametres();
+        $diaporama = $model->getDiaporama();
+        $view->afficher_entete_haut("parametres.css","Parametres");
+        $view->afficher_menu();
+        $view->setDiaporama($diaporama);
+        $view->afficher_parametres($parametres);
+        $view->afficher_entete_bas('');
+    } 
+
+
+    public function changeDiaporama(){
+        $this->check_admin_login();
+        $this->getModel("parametres");
+        $this->getModel("recette_model");
+        $this->getModel("news_model");
+        $model = new parametres();
+        $model_recette = new recette_model();
+        $model_news = new news_model();
+        for($index=1 ; $index<=5 ; $index++){
+            if($_FILES["lien_image" .$index]["name"]!=''){
+                move_uploaded_file($_FILES["lien_image" .$index]['tmp_name'],"../public/assets/images/".$_FILES["lien_image" .$index]['name']);
+                $model->changeDiaporamaPhoto($index,"http://localhost/Projet_TDW/public/assets/images/".$_FILES["lien_image" .$index]['name']);
+            }
+            if($_POST["lien_description" .$index]!=''){
+                $r= $model_recette->search_recette_by_title($_POST["lien_description" .$index]);
+                if(count($r)!=0){
+                    $model->changeDiaporamaDescr($index,LIEN_RECETTES.$r[0]["id_recette"]);
+                }else{
+                    $n =$model_news->search_news_by_title($_POST["lien_description" .$index]);
+                    if(count($n)!=0){
+                        $model->changeDiaporamaDescr($index,LIEN_NEWS.$n[0]["id_news"]);
+                    }
+                }
+                
+            }
+        }
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_parametres");
+    }
+
+    public function setParametres(){
+        $this->check_admin_login();
+        $this->getModel("parametres");
+        $model = new parametres();
+        if(isset($_POST["nb_calories_healthy"]) && isset($_POST["pourcentage_ingredient"]) && isset($_POST["pourcentage_nb_ingr_healthy"]) ){
+            if( is_float( floatval($_POST["pourcentage_ingredient"]) ) ){
+                if(floatval($_POST["pourcentage_ingredient"])>0 && floatval($_POST["pourcentage_ingredient"])<=1){
+                    $model->setParametre("pourcentage_ingredient",floatval($_POST["pourcentage_ingredient"]));
+                }
+
+            }
+
+            if( is_float( floatval($_POST["pourcentage_nb_ingr_healthy"]) ) ){
+                if(floatval($_POST["pourcentage_nb_ingr_healthy"])>0 && floatval($_POST["pourcentage_nb_ingr_healthy"])<=1){
+                    $model->setParametre("pourcentage_nb_ingr_healthy",floatval($_POST["pourcentage_nb_ingr_healthy"]));
+                }
+
+            }
+
+            if( is_integer( intval($_POST["nb_calories_healthy"]) ) ){         
+                $model->setParametre("nb_calories_healthy",intval($_POST["nb_calories_healthy"]));
+            }
+        }
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_parametres");
+    }
+
+    public function afficher_gestion_recette(){
+        $this->check_admin_login();
         $this->getView('admin_page_view');
         $this->getModel("ingredients");
-        $this->check_admin_login();
+        $this->getModel("recette_model");
         $view=new admin_page_view();
         $model = new ingredients();
-        $ingredients= $model->get_all_ingredients();
-        $view->afficher_entete_haut("gestion_ingredients.css","Gestion de la nutrition");
+        $model_recette = new recette_model();
+        $recettes = $model_recette->get_all_recettes();
+        $ids_recettes = array();
+        foreach($recettes as $recette){
+            array_push($ids_recettes,$recette["id_recette"]);
+        }
+        $recettes_info = $model->get_recettes($ids_recettes);
+        $view->afficher_entete_haut("gestion_recette.css","Gestion des recettes");
         $view->afficher_menu();
-        $view->afficher_gestion_ingredients($ingredients);
-        $view->afficher_entete_bas('gestion_ingredients.js');
-    } 
+        $view->afficher_gestion_recettes($recettes_info);
+        $view->afficher_entete_bas('');
+    }
 }

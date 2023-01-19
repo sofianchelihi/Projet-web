@@ -67,4 +67,12 @@ class news_model extends Model{
     public function ajouter_new_news($titre,$description,$nom_image){
         return $this->requete2("INSERT INTO news(titre_news,description, liens_image, lien_video) VALUES ('".$titre."','".$description."','http://localhost/Projet_TDW/public/assets/images/".$nom_image."','#')");
     }
+
+    public function get_news_title(){
+        return $this->requete2("SELECT * FROM news WHERE id_recette IS NULL");
+    }
+
+    public function search_news_by_title($titre){
+       return $this->requete2("SELECT * FROM news WHERE titre_news='".$titre."'"); 
+    }
 }

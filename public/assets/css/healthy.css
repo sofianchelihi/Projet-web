@@ -168,6 +168,7 @@ body::-webkit-scrollbar-thumb {
     height: auto;
     display: flex;
     flex-wrap: wrap;
+    min-height: 430px;
 }
 
 .info{

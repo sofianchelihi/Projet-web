@@ -6,7 +6,7 @@ class admin_page_view extends view_admin{
             <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news" style="background-image: url(<?php echo ROOTIMG.'news.jpg';?>);">
                 News
             </a>
-            <a href="#" style="background-image: url(<?php echo ROOTIMG.'recettes.jpg';?>);">
+            <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_recette" style="background-image: url(<?php echo ROOTIMG.'recettes.jpg';?>);">
                 Recettes
             </a>
             <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_page_gestion_users" style="background-image: url(<?php echo ROOTIMG.'users.png';?>);">
@@ -15,7 +15,7 @@ class admin_page_view extends view_admin{
             <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients" style="background-image: url(<?php echo ROOTIMG.'nutrition.webp';?>);">
                 Nutrition
             </a>
-            <a href="#" style="background-image: url(<?php echo ROOTIMG.'setings.webp';?>);">
+            <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_parametres" style="background-image: url(<?php echo ROOTIMG.'setings.webp';?>);">
                 Paramètres
             </a>
         </div>
@@ -364,6 +364,61 @@ class admin_page_view extends view_admin{
             <button type="submit" class="btn btn-primary my-5 w-25" style="margin-left: 60%;"> Envoyer </button>  
         </form>
       <?php
+    }
+
+    public function afficher_parametres($parametres){?>
+        <p class="typeElement my-5"> Changer parametres :</p>
+        <form class="parametres" method="post" action="http://localhost/Projet_TDW/njKMda/admin_page/setParametres"><?php
+            foreach($parametres as $parametre){?>
+                <div class="parametre my-5">
+                    <label><?php echo $parametre["id_parametre"]  ?>:</label>
+                    <input required type="text" class="form-control" name="<?php echo $parametre["id_parametre"]  ?>" value="<?php echo strval( $parametre["valeur"] ) ?>">
+                </div>
+              <?php
+            }?>
+        <button class="btn btn-primary send my-5">Envoyer</button>
+        </form>
+
+      <?php
+    }
+
+    public function setDiaporama($diaporama){
+        require '../application/Model/recette_model.php';
+        require '../application/Model/news_model.php';
+        $recette_model = new recette_model();
+        $news_model= new news_model();
+        $recettes = $recette_model->get_all_recettes();
+        $news = $news_model->get_news_title();
+        
+        ?><p class="typeElement my-5"> Changer element diaporama :</p>
+        <form enctype="multipart/form-data" class="diaporama" action="http://localhost/Projet_TDW/njKMda/admin_page/changeDiaporama" method="post"><?php
+            $index = 1;
+            foreach($diaporama as $element){?>
+                <?php  echo "<p>Eelement diaporama" .$index ."</p>" ?>
+                <div class="element">
+                    <input accept="image/*"  type="file" class="form-control" name="lien_image<?php echo $index ?>">
+                    <input type="text" class="form-control" name="lien_description<?php echo $index ?>" placeholder="Recettes ou News" list="list">
+                    <datalist id="list"><?php
+                        foreach($recettes as $recette){?>
+                            <option value="<?php echo $recette["titre_recette"]?>"></option>
+                          <?php
+                        }  
+                        foreach($news as $new){?>
+                            <option value="<?php echo $new["titre_news"]?>"></option>
+                          <?php
+                        }   
+                    ?></datalist>
+                </div>
+              <?php
+              $index++;
+            }?>
+            <button type="submit" class="btn btn-primary w-25 my-4">Envoyer</button>
+        </form>
+      <?php
+    }
+
+    public function afficher_gestion_recettes($recettes){
+        
     }
 
 

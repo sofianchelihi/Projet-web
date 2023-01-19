@@ -36,7 +36,7 @@ class view_admin{
             <div class="col-10">
                 <ul class="row"> 
                     <li class="col text-center">
-                        <a href="#">Gestion des recettes</a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_recette">Gestion des recettes</a>
                     </li>
                     <li class="col text-center">
                         <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_news">Gestion des News</a>
@@ -48,7 +48,7 @@ class view_admin{
                         <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients">Gestion de la nutrition</a>
                     </li>
                     <li class="col text-center">
-                        <a href="#">Paramètres</a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/afficher_parametres">Paramètres</a>
                     </li>
                     <li class="col text-center">
                         <a class="btn btn-primary" href="http://localhost/Projet_TDW/njKMda/login_admin/deconnect">Deconnecter</a>
