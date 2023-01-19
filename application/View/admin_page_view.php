@@ -270,11 +270,101 @@ class admin_page_view extends view_admin{
 
             <div class="col-3 my-3">
                 <label for="automne">Automne</label>
-                <input <?php if( in_array("automn",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="automne" name="automne" value="4">
+                <input <?php if( in_array("automne",$info_ingr["saisons"]) ) {?> checked <?php }?>  class="form-check-input mt-1 mx-2" type="checkbox" id="automne" name="automne" value="4">
             </div>
-            
-            <button class="btn btn-primary my-5 w-25" style="margin-left: 60%;"> Envoyer </button>  
+
+            <button type="submit" class="btn btn-primary my-5 w-25" style="margin-left: 60%;"> Envoyer </button>  
         </form>
       <?php
     }
+
+
+    public function ajouter_ingredient(){?>
+        <form class="row mx-4 my-5" action="http://localhost/Projet_TDW/njKMda/admin_page/ajouter_ingr" method="post">
+            <div class="col-4 my-4">
+                <label for="nom_ingr">Nom ingredient</label>
+                <input required class="form-control" type="text" name="nom_ingr" id="nom_ingr">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="calories">Nombre de calories</label>
+                <input required  class="form-control" type="number" name="calories" id="calories">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="healthy">Healthy</label>
+                <select required class="form-select" id="healthy" name="healthy">
+                    <option selected value="true">Healthy</option>
+                    <option  value="false">Not healthy</option>
+                </select>
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="glucide">Glucide</label>
+                <input required  class="form-control" type="number" name="glucide" id="glucide">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="lipide">Lipide</label>
+                <input required  class="form-control" type="number" name="lipide" id="lipide">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="minéraux">Minéraux</label>
+                <input required  class="form-control" type="number" name="minéraux" id="minéraux">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminA">Vitamin A</label>
+                <input required  class="form-control" type="number" name="vitaminA" id="vitaminA">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminB">Vitamin B</label>
+                <input required  class="form-control" type="number" name="vitaminB" id="vitaminB" >
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminC">Vitamin C</label>
+                <input required  class="form-control" type="number" name="vitaminC" id="vitaminC">
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminD">Vitamin D</label>
+                <input required  class="form-control" type="number" name="vitaminD" id="vitaminD" >
+            </div>
+
+            <div class="col-2 my-4">
+                <label for="vitaminE">Vitamin E</label>
+                <input required  class="form-control" type="number" name="vitaminE" id="vitaminE">
+            </div>
+
+            <p style="color: black;font-size:20px;font-weight:500;padding-left:25px;" class="my-5">les saisons</p>
+
+            <div class="col-3 my-3">
+                <label for="hiver">Hiver</label>
+                <input class="form-check-input mt-1 mx-2" type="checkbox" id="hiver" name="hiver" value="1" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="printemps">Printemps</label>
+                <input class="form-check-input mt-1 mx-2" type="checkbox" id="printemps" name="printemps" value="2" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="été">Eté</label>
+                <input class="form-check-input mt-1 mx-2" type="checkbox" id="été" name="été" value="3" >
+            </div>
+
+            <div class="col-3 my-3">
+                <label for="automne">Automne</label>
+                <input class="form-check-input mt-1 mx-2" type="checkbox" id="automne" name="automne" value="4">
+            </div>
+
+            <button type="submit" class="btn btn-primary my-5 w-25" style="margin-left: 60%;"> Envoyer </button>  
+        </form>
+      <?php
+    }
+
+
 }

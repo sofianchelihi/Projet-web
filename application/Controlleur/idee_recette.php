@@ -24,13 +24,14 @@ class idee_recette extends Controlleurs{
         $list_ingr = json_decode(json_encode($ing), true);
         $list_ingr = $list_ingr["json"];
         $this->getModel("ingredients");
+        $this->getModel("parametres");
+        $parametres = new parametres();
         $model = new ingredients();
         $result_recettes = $model->getRecette($list_ingr);
         $nb_ingredient_recettes = $model->get_nb_ingredient_in_recettes();
         $id_recettes=array();
         foreach($result_recettes as $element){
-            // LE SEUIL POUR IDEE RECETTES
-            if($element["nb_ingr"]>=get_nb_ingredient($nb_ingredient_recettes,$element["id_recette"])*0.7){
+            if($element["nb_ingr"]>=get_nb_ingredient($nb_ingredient_recettes,$element["id_recette"])*$parametres->getParametre("pourcentage_ingredient")){
                 array_push($id_recettes,$element["id_recette"]);
             }
         }

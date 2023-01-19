@@ -58,3 +58,7 @@ body::-webkit-scrollbar-thumb {
     color: white;
     font-weight: 500;
 }
+
+body{
+    background-color: rgb(237, 236, 236);
+}

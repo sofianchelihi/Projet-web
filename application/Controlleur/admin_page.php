@@ -124,17 +124,51 @@ class admin_page extends Controlleurs{
         $view->afficher_entete_haut("modifier_ingr.css",$ingredient[0]['nom_ingr']);
         $view->afficher_menu();
         $view->modifier_ingredient($ingredient);
-        $view->afficher_entete_bas('modifier_ingr.js');
+        $view->afficher_entete_bas('');
     }
 
     public function modifier_ingr($id_ingr){
+        $this->check_admin_login();
         $this->getModel("ingredients");
         $model = new ingredients();
-        $model->modifier_ingr($id_ingr);
+        if(count($_POST)>=12){
+            $model->modifier_ingr($id_ingr);
+        }
         header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients");
     }
 
     public function page_ajouter_ingr(){
-
+        $this->check_admin_login();
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        $this->getView('admin_page_view');
+        $view=new admin_page_view();
+        $view->afficher_entete_haut("modifier_ingr.css","Rajouter ingrédients");
+        $view->afficher_menu();
+        $view->ajouter_ingredient();
+        $view->afficher_entete_bas('');
     }
+
+    public function ajouter_ingr(){
+        $this->check_admin_login();
+        $this->getModel("ingredients");
+        $model = new ingredients();
+        if(count($_POST)>=12){
+            $model->ajouter_ingr();
+        }
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_ingredients");
+    }
+
+    public function afficher_parametres(){
+        $this->getView('admin_page_view');
+        $this->getModel("ingredients");
+        $this->check_admin_login();
+        $view=new admin_page_view();
+        $model = new ingredients();
+        $ingredients= $model->get_all_ingredients();
+        $view->afficher_entete_haut("gestion_ingredients.css","Gestion de la nutrition");
+        $view->afficher_menu();
+        $view->afficher_gestion_ingredients($ingredients);
+        $view->afficher_entete_bas('gestion_ingredients.js');
+    } 
 }
