@@ -62,3 +62,26 @@ body::-webkit-scrollbar-thumb {
 .menu div:nth-child(2) ul li:nth-child(1) a{
     color: orange!important;
 }
+
+.info_recette{
+    display: none;
+}
+
+.filtres{
+    width: 90%!important;
+    margin-left: 5%;
+    justify-content: space-between;
+}
+.filtres select,button,input{
+    width: 14%!important;
+}
+
+.tries{
+    width: 60%!important;
+    margin-left: 35%;
+    justify-content: space-between;
+}
+
+.tries select,button{
+    width: 33%;
+}

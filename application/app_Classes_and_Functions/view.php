@@ -100,7 +100,8 @@ class view{
     <?php
     }
 
-    public function afficher_card($info_recette,$total_info){ ?>
+    public function afficher_card($info_recette,$total_info){ 
+        if($info_recette['valide']){?>
         <div class="cart">
             <img src="<?php if(isset($info_recette['lien_image']))  echo $info_recette['lien_image']  ?>" class="cardImg"  alt="Error">
             <div class="cardBody">
@@ -212,9 +213,11 @@ class view{
                     ?>
                     </ul>
                 </div>
+                <a href="<?php if(  isset($info_recette['lien_video'])   ){ echo $info_recette["lien_video"]; }else{ echo "#" ;} ?>" class="btn btn-primary my-5 w-25 info" style="margin-left: 65%;">Voir video </a>
             </div>
         </div>
-    <?php    
+    <?php 
+    }   
     }
  
     public function affiche_categorie($data_categorie,$total_info){ ?>

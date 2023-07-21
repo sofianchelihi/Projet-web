@@ -1,0 +1,11 @@
+Pour les modification j'ai reglé un probleme generé par PHPMyAdmin dans EXPORTER la base
+
+
+Installation de l'application :
+
+Le nom de la base de donnees : tdw 
+Admin username : Admin
+Admin password : Admin
+Le dossier Projet_TDW doit etre placé dans le dossier htdocs ou www 
+Apres le lancement de serveur pour accedé a la page admin tapé : http://localhost/Projet_TDW/njKMda/    
+Apres le lancement de serveur pour accedé a la page user tapé : http://localhost/Projet_TDW/public/    

@@ -18,7 +18,8 @@ class news_model extends Model{
                 $recette["temp_prepa"]=0;
                 $recette["temp_repo"]=0;
                 $recette["temp_cuis"]=0;
-                $recette["lien_video"]=$new["lien_video"];           
+                $recette["lien_video"]=$new["lien_video"];  
+                $recette["valide"]=true;         
             }
             $recette["saisons"]=array();
             $recette["calorie"]=0;
@@ -48,6 +49,7 @@ class news_model extends Model{
         $new_info["note"]=0;
         $new_info["etapes"]=array();
         $new_info["ingredients"]=array();
+        $new_info['valide']=true;
         return $new_info;
     }
 

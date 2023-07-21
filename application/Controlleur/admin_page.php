@@ -246,7 +246,36 @@ class admin_page extends Controlleurs{
         $recettes_info = $model->get_recettes($ids_recettes);
         $view->afficher_entete_haut("gestion_recette.css","Gestion des recettes");
         $view->afficher_menu();
+        $view->afficher_filtre();
         $view->afficher_gestion_recettes($recettes_info);
-        $view->afficher_entete_bas('');
+        $view->afficher_entete_bas('gestion_recette.js');
+    }
+
+    public function modifier_recette_page($id_recettte){
+        
+    }
+
+    public function supprimer_recette($id_recettte){
+
+    }
+
+    public function ajouter_recette_page(){
+
+    }
+
+    public function invalider_recette($id_recettte){
+        $this->check_admin_login();
+        $this->getModel("recette_model");
+        $model = new recette_model();
+        $model->invalider_recette($id_recettte);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_recette");
+    }
+
+    public function valider_recette($id_recettte){
+        $this->check_admin_login();
+        $this->getModel("recette_model");
+        $model = new recette_model();
+        $model->valider_recette($id_recettte);
+        header("Location: http://localhost/Projet_TDW/njKMda/admin_page/afficher_gestion_recette");
     }
 }

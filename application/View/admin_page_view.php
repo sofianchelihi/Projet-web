@@ -131,7 +131,7 @@ class admin_page_view extends view_admin{
                             }
                         ?>
                         <a href="http://localhost/Projet_TDW/njKMda/admin_page/supprimer_user&id_user=<?php echo $user["id_user"]?>" class="btn btn-warning me-2 mt-1 sup"> Supprimer </a>
-                    </span>
+                    </span> 
                 </li>
               <?php 
             }
@@ -417,8 +417,66 @@ class admin_page_view extends view_admin{
       <?php
     }
 
-    public function afficher_gestion_recettes($recettes){
-        
+    public function afficher_gestion_recettes($recettes){?>
+        <a href="http://localhost/Projet_TDW/njKMda/admin_page/ajouter_recette_page" class="btn btn-primary w-25 my-5" style="margin-left: 65%;">Ajouter recette</a>
+        <ol class="list-group list-group-numbered px-4 my-5"><?php 
+            foreach($recettes as $recette){?>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold nom_ingr"><?php echo $recette['titre_recette'] ?></div>
+                        <?php echo afficher_description($recette["description"],false,100) ?>
+                    </div>
+                    <span>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/modifier_recette_page&id_recette=<?php echo $recette["id_recette"]?>" class="btn btn-primary me-2 mt-1"> Modifier </a>
+                        <a target="_blank" href="<?php echo LIEN_RECETTES.$recette["id_recette"]?>" class="btn btn-primary me-2 mt-1"> Voir plus </a>
+                        <a href="http://localhost/Projet_TDW/njKMda/admin_page/supprimer_recette&id_recette=<?php echo $recette["id_recette"] ?>" class="btn btn-warning me-2 mt-1 sup"> Supprimer </a><?php
+                            if($recette["valide"]){?>
+                                <a href="http://localhost/Projet_TDW/njKMda/admin_page/invalider_recette&id_recette=<?php echo $recette["id_recette"] ?>" class="btn btn-danger me-2 mt-1"> Invalider </a><?php
+                            }else{?>
+                                <a href="http://localhost/Projet_TDW/njKMda/admin_page/valider_recette&id_recette=<?php echo $recette["id_recette"]?>" class="btn btn-success me-2 mt-1"> Valider </a><?php
+                            }
+                        ?>
+                    </span>
+                    <div class="info_recette">
+                        <div class="diffic info">
+                            <p><?php echo $recette['diff_recette'] ?></p>
+                        </div>
+                        <div class="temp_preparation info">
+                            <p><?php echo $recette['temp_prepa'] ?></p>
+                        </div>
+                        <div class="temp_repo info">
+                            <p><?php echo $recette['temp_repo'] ?></p>
+                        </div>
+                        <div class="temp_cuis info">
+                            <p><?php echo $recette['temp_cuis'] ?></p>
+                        </div>  
+                        <div class="temp_total info">
+                            <p><?php echo $recette['temp_prepa']+$recette['temp_cuis'] ?></p>
+                        </div>
+                        <div class="notation info">
+                            <p><?php if(isset($recette['note']))  echo ceil($recette['note']) ?></p>
+                        </div>
+                        <div class="nb_calories info">
+                           <p><?php if(isset($recette['calorie']))  echo ceil($recette['calorie']) ?></p>
+                        </div>
+                        <div class="saisons info">
+                            <p>
+                                <?php 
+                                    if(isset($recette['saisons'])){
+                                        foreach($recette['saisons'] as $saison){
+                                            echo $saison." - ";
+                                        }
+                                    }
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+              <?php 
+            }
+        ?></ol>
+
+      <?php    
     }
 
 

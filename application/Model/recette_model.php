@@ -82,4 +82,12 @@ class recette_model extends Model{
     public function search_recette_by_title($title){
         return $this->requete2("SELECT * FROM recette WHERE titre_recette='".$title."'");
     }
+
+    public function invalider_recette($id_recette){
+        return $this->requete1("UPDATE recette SET valide=false WHERE id_recette=?",[$id_recette]);
+    }
+
+    public function valider_recette($id_recette){
+        return $this->requete1("UPDATE recette SET valide=true WHERE id_recette=?",[$id_recette]);
+    }
 }
