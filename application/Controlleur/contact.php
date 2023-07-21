@@ -15,8 +15,8 @@ class contact extends Controlleurs{
         $this->afficher_contact();
         if(isset($_POST["name"])){
             require '../application/app_Classes_and_Functions/mail.php';
-            $mail->setFrom("js_chelihi@esi.dz",$_POST["name"]);
-            $mail->addAddress("js_chelihi@esi.dz");
+            $mail->setFrom("",$_POST["name"]);
+            $mail->addAddress("");
             $mail->Subject =$_POST["title"];
             $mail->Body=$_POST['message'];
             $mail->send();
